@@ -12,11 +12,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Vox/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="91">
-              <caret line="14" column="12" lean-forward="true" selection-start-line="14" selection-start-column="12" selection-end-line="14" selection-end-column="12" />
+            <state relative-caret-position="196">
+              <caret line="16" column="37" lean-forward="false" selection-start-line="16" selection-start-column="37" selection-end-line="16" selection-end-column="37" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#239#240#0" expanded="true" />
@@ -55,8 +55,8 @@
       <file leaf-file-name="Vertex.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Vox/Vertex.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="462">
-              <caret line="33" column="10" lean-forward="false" selection-start-line="33" selection-start-column="10" selection-end-line="33" selection-end-column="10" />
+            <state relative-caret-position="490">
+              <caret line="26" column="31" lean-forward="false" selection-start-line="26" selection-start-column="31" selection-end-line="26" selection-end-column="31" />
               <folding>
                 <element signature="e#255#256#0" expanded="true" />
                 <element signature="e#279#280#0" expanded="true" />
@@ -65,7 +65,7 @@
                 <element signature="e#359#360#0" expanded="true" />
                 <element signature="e#383#384#0" expanded="true" />
                 <element signature="e#413#414#0" expanded="true" />
-                <element signature="e#451#452#0" expanded="true" />
+                <element signature="e#453#454#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -84,10 +84,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="QuadFace.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="QuadFace.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Vox/QuadFace.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
+            <state relative-caret-position="840">
               <caret line="40" column="31" lean-forward="true" selection-start-line="40" selection-start-column="31" selection-end-line="40" selection-end-column="31" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -101,8 +101,8 @@
       <file leaf-file-name="Engine.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Vox/Engine.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="822">
-              <caret line="53" column="10" lean-forward="false" selection-start-line="53" selection-start-column="10" selection-end-line="53" selection-end-column="10" />
+            <state relative-caret-position="339">
+              <caret line="69" column="30" lean-forward="false" selection-start-line="69" selection-start-column="30" selection-end-line="69" selection-end-column="30" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#529#530#0" expanded="true" />
@@ -145,10 +145,10 @@
         <option value="$PROJECT_DIR$/src/Vox/Vector3Float.java" />
         <option value="$PROJECT_DIR$/src/Vox/Camera.java" />
         <option value="$PROJECT_DIR$/src/Vox/Cube.java" />
-        <option value="$PROJECT_DIR$/src/Vox/Vertex.java" />
         <option value="$PROJECT_DIR$/src/Vox/QuadFace.java" />
-        <option value="$PROJECT_DIR$/src/Vox/Main.java" />
+        <option value="$PROJECT_DIR$/src/Vox/Vertex.java" />
         <option value="$PROJECT_DIR$/src/Vox/Engine.java" />
+        <option value="$PROJECT_DIR$/src/Vox/Main.java" />
       </list>
     </option>
   </component>
@@ -348,7 +348,7 @@
             <element signature="e#359#360#0" expanded="true" />
             <element signature="e#383#384#0" expanded="true" />
             <element signature="e#413#414#0" expanded="true" />
-            <element signature="e#451#452#0" expanded="true" />
+            <element signature="e#453#454#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -412,35 +412,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Vox/Vertex.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="462">
-          <caret line="33" column="10" lean-forward="false" selection-start-line="33" selection-start-column="10" selection-end-line="33" selection-end-column="10" />
-          <folding>
-            <element signature="e#255#256#0" expanded="true" />
-            <element signature="e#279#280#0" expanded="true" />
-            <element signature="e#307#308#0" expanded="true" />
-            <element signature="e#331#332#0" expanded="true" />
-            <element signature="e#359#360#0" expanded="true" />
-            <element signature="e#383#384#0" expanded="true" />
-            <element signature="e#413#414#0" expanded="true" />
-            <element signature="e#451#452#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Vox/QuadFace.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="40" column="31" lean-forward="true" selection-start-line="40" selection-start-column="31" selection-end-line="40" selection-end-column="31" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#876#877#0" expanded="true" />
-            <element signature="e#910#911#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Vox/Camera.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3150">
@@ -466,10 +437,39 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Vox/Vertex.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="490">
+          <caret line="26" column="31" lean-forward="false" selection-start-line="26" selection-start-column="31" selection-end-line="26" selection-end-column="31" />
+          <folding>
+            <element signature="e#255#256#0" expanded="true" />
+            <element signature="e#279#280#0" expanded="true" />
+            <element signature="e#307#308#0" expanded="true" />
+            <element signature="e#331#332#0" expanded="true" />
+            <element signature="e#359#360#0" expanded="true" />
+            <element signature="e#383#384#0" expanded="true" />
+            <element signature="e#413#414#0" expanded="true" />
+            <element signature="e#453#454#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Vox/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="196">
+          <caret line="16" column="37" lean-forward="false" selection-start-line="16" selection-start-column="37" selection-end-line="16" selection-end-column="37" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#239#240#0" expanded="true" />
+            <element signature="e#268#269#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Vox/Engine.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="822">
-          <caret line="53" column="10" lean-forward="false" selection-start-line="53" selection-start-column="10" selection-end-line="53" selection-end-column="10" />
+        <state relative-caret-position="339">
+          <caret line="69" column="30" lean-forward="false" selection-start-line="69" selection-start-column="30" selection-end-line="69" selection-end-column="30" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#529#530#0" expanded="true" />
@@ -478,14 +478,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Vox/Main.java">
+    <entry file="file://$PROJECT_DIR$/src/Vox/QuadFace.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="91">
-          <caret line="14" column="12" lean-forward="true" selection-start-line="14" selection-start-column="12" selection-end-line="14" selection-end-column="12" />
+        <state relative-caret-position="840">
+          <caret line="40" column="31" lean-forward="true" selection-start-line="40" selection-start-column="31" selection-end-line="40" selection-end-column="31" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#239#240#0" expanded="true" />
-            <element signature="e#268#269#0" expanded="true" />
+            <element signature="e#876#877#0" expanded="true" />
+            <element signature="e#910#911#0" expanded="true" />
           </folding>
         </state>
       </provider>

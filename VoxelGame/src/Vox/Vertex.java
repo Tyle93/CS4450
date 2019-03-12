@@ -24,7 +24,7 @@ public class Vertex {
         return z;
     }
     public void drawVertex(){
-        GL11.glVertex3d(x,y,z);
+        GL11.glVertex4d(x,y,z,1);
     }
     public Vertex(int x, int y, int z)
     {
