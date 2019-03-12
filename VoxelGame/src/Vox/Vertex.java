@@ -3,9 +3,9 @@ package Vox;
 import org.lwjgl.opengl.GL11;
 
 public class Vertex {
-    double x;
-    double y;
-    double z;
+    private double x;
+    private double y;
+    private double z;
 
     public void applyScale(){
         x = x*Engine.scale;
@@ -23,6 +23,7 @@ public class Vertex {
     public double getZ() {
         return z;
     }
+
     public void drawVertex(){
         GL11.glVertex4d(x,y,z,1);
     }
@@ -31,7 +32,7 @@ public class Vertex {
         this.x = x;
         this.y = y;
         this.z = z;
-        //applyScale();
+        applyScale();
     }
 
 }

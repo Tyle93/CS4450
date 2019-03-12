@@ -3,8 +3,6 @@ package Vox;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.util.Color;
 
-import java.util.Vector;
-
 public class QuadFace implements Drawable{
     public static int count = 0;
     Vertex[] vertices;
