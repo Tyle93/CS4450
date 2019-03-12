@@ -35,12 +35,12 @@ public class QuadFace implements Drawable{
         this.color = color;
     }
     public void draw(){
-        if(vertices.length == 4){
             GL11.glColor3f((float)color.getRed()/255,(float)color.getGreen()/255,(float)color.getBlue()/255);
+            GL11.glBegin(GL11.GL_QUADS);
             for(Vertex v: vertices){
-                GL11.glVertex3d(v.getX(),v.getY(),v.getZ());
+                v.drawVertex();
             }
-        }
+            GL11.glEnd();
     }
     public static QuadFace[] generateFaces(int size){
         QuadFace[] faces = new QuadFace[6];
