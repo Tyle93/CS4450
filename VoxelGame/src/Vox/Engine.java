@@ -25,6 +25,32 @@ public class Engine{
         for(Cube c : objects){
             c.draw();
         }
+        /*
+        glBegin(GL_QUADS);
+        glColor3f(1.0f,0.0f,1.0f, 1);
+
+
+        glVertex3f( 1.0f,-1.0f,-1.0f);
+        glVertex3f(-1.0f,-1.0f,-1.0f);
+        glVertex3f(-1.0f, 1.0f,-1.0f);
+        glVertex3f( 1.0f, 1.0f,-1.0f);
+
+        glColor3f(0.0f,0.0f,1.0f,1);
+
+        glVertex3f( 1.0f,-1.0f,1.0f);
+        glVertex3f(-1.0f,-1.0f,1.0f);
+        glVertex3f(-1.0f, 1.0f,1.0f);
+        glVertex3f( 1.0f, 1.0f,1.0f);
+
+        glColor3f(1.0f,0.0f,0.0f,1);
+
+        glVertex3f( 1.0f,-1.0f,-1.0f);
+        glVertex3f(1.0f,-1.0f,1.0f);
+        glVertex3f(-1.0f, -1.0f,1.0f);
+        glVertex3f( -1.0f, -1.0f,-1.0f);
+
+        glEnd();
+        */
         //glEnd();
 
     }
