@@ -1,5 +1,12 @@
 package Vox;
+/*
+    Name: Tyler Crouch
+    Assignment: Project Checkpoint #1
+    Class: CS 4450
+    Last Modified: 03/11/2019
 
+    File Name: Camera.java
+ */
 import org.lwjgl.util.vector.Vector3f;
 
 import static org.lwjgl.opengl.GL11.*;

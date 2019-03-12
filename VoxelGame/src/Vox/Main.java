@@ -1,3 +1,11 @@
+/*
+    Name: Tyler Crouch
+    Assignment: Project Checkpoint #1
+    Class: CS 4450
+    Last Modified: 03/11/2019
+
+    File Name: Main.java
+ */
 package Vox;
 
 import org.lwjgl.util.Color;

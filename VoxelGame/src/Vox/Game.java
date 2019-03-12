@@ -1,5 +1,12 @@
 package Vox;
+/*
+    Name: Tyler Crouch
+    Assignment: Project Checkpoint #1
+    Class: CS 4450
+    Last Modified: 03/11/2019
 
+    File Name: Game.java
+ */
 import org.lwjgl.input.Keyboard;
 import org.lwjgl.input.Mouse;
 import org.lwjgl.opengl.Display;
@@ -46,7 +53,7 @@ public class Game {
         if (Keyboard.isKeyDown(Keyboard.KEY_SPACE)){
             camera.moveUp(movementSpeed);
         }
-        if (Keyboard.isKeyDown(Keyboard.KEY_E)){
+        if (Keyboard.isKeyDown(Keyboard.KEY_E) || Keyboard.isKeyDown(Keyboard.KEY_LCONTROL)){
             camera.moveDown(movementSpeed);
         }
     }

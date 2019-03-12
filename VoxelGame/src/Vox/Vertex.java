@@ -1,5 +1,12 @@
 package Vox;
+/*
+    Name: Tyler Crouch
+    Assignment: Project Checkpoint #1
+    Class: CS 4450
+    Last Modified: 03/11/2019
 
+    File Name: Vertex.java
+ */
 import org.lwjgl.opengl.GL11;
 
 public class Vertex {
