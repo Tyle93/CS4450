@@ -15,20 +15,23 @@ import java.util.Vector;
 import static org.lwjgl.opengl.GL11.*;
 
 public class Engine{
-    public static double scale = 2;
-    private static Vector<Cube> objects = new Vector<Cube>();
+    public static double scale = 1;
+    private static final int SIZE = 1;
+    private static final float OFFSET = .005f;
+    private static Vector<Chunk> objects = new Vector<Chunk>();
     private static DisplayMode displayMode;
-    public static void addObject(Cube cube){
-        objects.add(cube);
+    public static void addObject(Chunk chunk){
+        objects.add(chunk);
     }
     public static void Render(){
-        for(Cube c : objects){
+        for(Chunk c : objects){
             c.draw();
         }
     }
     public static void start(){
         createWindow();
         initGL();
+        generateWorld();
         Game.gameLoop();
     }
     private static void initGL() {
@@ -41,15 +44,26 @@ public class Engine{
         glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST);
         glEnable(GL_DEPTH_TEST);
     }
+
+    public static float getOFFSET() {
+        return OFFSET;
+    }
     private static void createWindow(){
         try{
             Display.setFullscreen(false);
             displayMode = new DisplayMode(640,480);
             Display.setDisplayMode(displayMode);
-            Display.setTitle("MeinKraft");
+            Display.setTitle("CubeKraft");
             Display.create();
         }catch (Exception e){
-
+            for(StackTraceElement s: e.getStackTrace()){
+                System.out.println(s.toString());
+            }
+        }
+    }
+    private static void generateWorld(){
+        for(int i = 0; i < SIZE; i++){
+            new Chunk();
         }
     }
 }

@@ -5,7 +5,7 @@ package FinalProject;
     Class: CS 4450 - Computer Graphics
     Last Modified: 03/11/2019
 
-    File Name: Cube.java
+    File Name: Block.java
     Purpose: This class holds the 6 Quadface object classes. The main function
     of this class is basically drawing the 6 quads that were created. This class
     has potential to be used in future checkpoints. 

@@ -32,7 +32,7 @@ public class Vertex {
     }
 
     public void drawVertex(){
-        GL11.glVertex4d(x,y,z,1);
+
     }
     public Vertex(int x, int y, int z)
     {

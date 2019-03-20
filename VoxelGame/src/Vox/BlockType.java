@@ -1,0 +1,10 @@
+package Vox;
+
+public enum BlockType {
+    BLOCK_TYPE_WATER,
+    BLOCK_TYPE_GRASS,
+    BLOCK_TYPE_DIRT,
+    BLOCK_TYPE_STONE,
+    BLOCK_TYPE_SAND,
+    BLOCK_TYPE_BEDROCK
+}
