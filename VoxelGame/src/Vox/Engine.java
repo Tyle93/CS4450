@@ -16,7 +16,7 @@ import static org.lwjgl.opengl.GL11.*;
 
 public class Engine{
     public static double scale = .01;
-    private static final int SIZE = 3;
+    private static final int SIZE = 32;
     private static final float OFFSET = .000f;
     private static Vector<Chunk> objects = new Vector<Chunk>();
     private static DisplayMode displayMode;
@@ -25,10 +25,11 @@ public class Engine{
     }
     public static void Render(){
         for(Chunk c : objects){
-            c.draw();
+            if(c.isActive){
+                c.draw();
+            }
         }
     }
-
     public static int getSIZE() {
         return SIZE;
     }
@@ -44,7 +45,7 @@ public class Engine{
         glMatrixMode(GL_PROJECTION);
         glLoadIdentity();
         GLU.gluPerspective(100.0f, (float)displayMode.getWidth()/(float)
-                displayMode.getHeight(), 0.1f, 300.0f);
+                displayMode.getHeight(), 0.1f, 200);
         glMatrixMode(GL_MODELVIEW);
         glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST);
         glEnable(GL_DEPTH_TEST);
@@ -67,8 +68,8 @@ public class Engine{
         }
     }
     private static void generateWorld(){
-        for(int i = 0; i < SIZE*SIZE*SIZE; i++){
-                    new Chunk();
+        for(int i = 0; i < SIZE*SIZE; i++){
+            new Chunk();
         }
     }
 }
