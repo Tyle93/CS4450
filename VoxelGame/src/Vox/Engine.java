@@ -15,9 +15,9 @@ import java.util.Vector;
 import static org.lwjgl.opengl.GL11.*;
 
 public class Engine{
-    public static double scale = 1;
-    private static final int SIZE = 1;
-    private static final float OFFSET = .005f;
+    public static double scale = .01;
+    private static final int SIZE = 3;
+    private static final float OFFSET = .000f;
     private static Vector<Chunk> objects = new Vector<Chunk>();
     private static DisplayMode displayMode;
     public static void addObject(Chunk chunk){
@@ -28,6 +28,11 @@ public class Engine{
             c.draw();
         }
     }
+
+    public static int getSIZE() {
+        return SIZE;
+    }
+
     public static void start(){
         createWindow();
         initGL();
@@ -62,8 +67,8 @@ public class Engine{
         }
     }
     private static void generateWorld(){
-        for(int i = 0; i < SIZE; i++){
-            new Chunk();
+        for(int i = 0; i < SIZE*SIZE*SIZE; i++){
+                    new Chunk();
         }
     }
 }

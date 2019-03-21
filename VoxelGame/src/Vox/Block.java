@@ -17,7 +17,7 @@ public class Block {
     private float yPos = 0;
     private float zPos = 0;
     private QuadFace[] faces;
-    boolean isActive = false;
+    public  boolean isActive = false;
     public Block(float xPos, float yPos, float zPos){
         this.xPos = xPos;
         this.yPos = yPos;
@@ -36,8 +36,17 @@ public class Block {
         for(QuadFace q : faces){
             q.draw();
         }
-        rotation += 1;
-        yPos++;
-        xPos += .05;
+    }
+
+    public float getxPos() {
+        return xPos;
+    }
+
+    public float getyPos() {
+        return yPos;
+    }
+
+    public float getzPos() {
+        return zPos;
     }
 }
