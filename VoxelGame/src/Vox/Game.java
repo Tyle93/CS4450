@@ -18,7 +18,7 @@ public class Game {
     private static float mouseSensitivity = 0.09f;
     private static float movementSpeed = .9f;
     public static void gameLoop() {
-        camera = new Camera(0, 0, 0);
+        camera = new Camera(0, -20, 0);
         float dx = 0.0f;
         float dy = 0.0f;
         Mouse.setGrabbed(true);

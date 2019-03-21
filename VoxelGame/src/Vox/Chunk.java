@@ -6,11 +6,11 @@ import java.util.Arrays;
 
 public class Chunk {
     private static int ChunkCount = 0;
-    private final int CHUNKSIZE  = 8;
+    private final int CHUNKSIZE  = 32;
     Block[][][] blocks;
     public boolean isActive = true;
     public Chunk(){
-        double scale = .008;
+        double scale = .011;
         int seed = 543332;
         double[][] noise = new double[CHUNKSIZE][CHUNKSIZE];
         SimplexNoise_octave simp = new SimplexNoise_octave(seed);
@@ -39,11 +39,11 @@ public class Chunk {
                 if(currentHeight == 0){
                     currentHeight = 1;
                 }
-                blocks[i][currentHeight][j].isActive = true;
-                //for(int k = 0; k < currentHeight; k++){
-                //    //blocks[i][k][j] = new Block(i+(Engine.getOFFSET() * i),k + (Engine.getOFFSET() * k),j + (Engine.getOFFSET() * j));
-                //    blocks[i][k][j].isActive = true;
-                //}
+                //blocks[i][currentHeight][j].isActive = true;
+                for(int k = 0; k < currentHeight; k++){
+                    //blocks[i][k][j] = new Block(i+(Engine.getOFFSET() * i),k + (Engine.getOFFSET() * k),j + (Engine.getOFFSET() * j));
+                    blocks[i][k][j].isActive = true;
+                }
             }
         }
         Engine.addObject(this);

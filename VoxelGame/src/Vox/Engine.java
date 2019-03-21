@@ -7,19 +7,29 @@ package Vox;
 
     File Name: Engine.java
  */
+import org.lwjgl.BufferUtils;
 import org.lwjgl.opengl.Display;
 import org.lwjgl.opengl.DisplayMode;
+import org.lwjgl.opengl.GL11;
 import org.lwjgl.util.glu.GLU;
+
+import java.nio.ByteBuffer;
+import java.nio.ByteOrder;
+import java.nio.FloatBuffer;
 import java.util.Vector;
 
 import static org.lwjgl.opengl.GL11.*;
 
 public class Engine{
     public static double scale = .01;
-    private static final int SIZE = 32;
+    private static final int SIZE = 2;
     private static final float OFFSET = .000f;
     private static Vector<Chunk> objects = new Vector<Chunk>();
     private static DisplayMode displayMode;
+    private static FloatBuffer matSpecular;
+    private static FloatBuffer lightPosition;
+    private static FloatBuffer whiteLight;
+    private static FloatBuffer lModelAmbient;
     public static void addObject(Chunk chunk){
         objects.add(chunk);
     }
@@ -48,7 +58,10 @@ public class Engine{
                 displayMode.getHeight(), 0.1f, 200);
         glMatrixMode(GL_MODELVIEW);
         glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST);
+        glClearDepth(1.0f);
         glEnable(GL_DEPTH_TEST);
+        //glEnable(GL_LIGHTING);
+        glEnable(GL_TEXTURE_2D);
     }
 
     public static float getOFFSET() {
