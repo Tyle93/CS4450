@@ -60,7 +60,4 @@ public class Chunk {
             }
         }
     }
-    public int getCHUNKSIZE() {
-        return CHUNKSIZE;
-    }
 }

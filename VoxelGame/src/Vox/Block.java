@@ -52,7 +52,6 @@ public class Block {
             else{
                 type = BlockType.BLOCK_TYPE_BEDROCK;
             }
-
         }
     }
     public float getxPos() {

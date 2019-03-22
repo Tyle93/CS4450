@@ -19,7 +19,6 @@ public class Main {
         initDisplay();
     }
     public static void initDisplay(){
-        String path = "ArchitectureLayout.png";
         try{
             Engine.start();
         }catch(Exception e){
