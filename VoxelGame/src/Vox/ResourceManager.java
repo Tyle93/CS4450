@@ -10,26 +10,32 @@ import java.io.StringWriter;
 
 public class ResourceManager {
     static private boolean initialized = false;
-    private static final String DIRT_PATH = "Dirt.png";
-    private static final String SAND_PATH = "Sand.png";
-    private static final String WATER_PATH = "Water.png";
-    private static final String BEDROCK_PATH = "Bedrock.png";
-    private static final String GRASS_PATH = "Grass.png";
-    private static final String STONE_PATH = "Stone.png";
-    private static Texture DIRT_TEXTURE = null;
-    private static Texture SAND_TEXTURE = null;
-    private static Texture WATER_TEXTURE = null;
-    private static Texture BEDROCK_TEXTURE = null;
-    private static Texture GRASS_TEXTURE = null;
-    private static Texture STONE_TEXTURE = null;
+    private static Texture DIRT_TEXTURE[]= new Texture[3];
+    private static Texture SAND_TEXTURE[]= new Texture[3];
+    private static Texture WATER_TEXTURE[]= new Texture[3];
+    private static Texture BEDROCK_TEXTURE[] = new Texture[3];
+    private static Texture GRASS_TEXTURE[] = new Texture[3];
+    private static Texture STONE_TEXTURE[] = new Texture[3];
     public static void initializeResources(){
         try {
-            BEDROCK_TEXTURE = TextureLoader.getTexture("PNG", new FileInputStream(BEDROCK_PATH));
-            DIRT_TEXTURE = TextureLoader.getTexture("PNG", new FileInputStream(DIRT_PATH));
-            SAND_TEXTURE = TextureLoader.getTexture("PNG", new FileInputStream(SAND_PATH));
-            GRASS_TEXTURE = TextureLoader.getTexture("PNG", new FileInputStream(GRASS_PATH));
-            STONE_TEXTURE = TextureLoader.getTexture("PNG", new FileInputStream(STONE_PATH));
-            WATER_TEXTURE = TextureLoader.getTexture("PNG", new FileInputStream(WATER_PATH));
+            BEDROCK_TEXTURE[0] = TextureLoader.getTexture("PNG", new FileInputStream("Bedrock.png"));
+            BEDROCK_TEXTURE[1] = TextureLoader.getTexture("PNG", new FileInputStream("Bedrock.png"));
+            BEDROCK_TEXTURE[2] = TextureLoader.getTexture("PNG", new FileInputStream("Bedrock.png"));
+            DIRT_TEXTURE[0] = TextureLoader.getTexture("PNG", new FileInputStream("Dirt.png"));
+            DIRT_TEXTURE[1] = TextureLoader.getTexture("PNG", new FileInputStream("Dirt.png"));
+            DIRT_TEXTURE[2] = TextureLoader.getTexture("PNG", new FileInputStream("Dirt.png"));
+            SAND_TEXTURE[0] = TextureLoader.getTexture("PNG", new FileInputStream("Sand.png"));
+            SAND_TEXTURE[1] = TextureLoader.getTexture("PNG", new FileInputStream("Sand.png"));
+            SAND_TEXTURE[2] = TextureLoader.getTexture("PNG", new FileInputStream("Sand.png"));
+            GRASS_TEXTURE[0] = TextureLoader.getTexture("PNG", new FileInputStream("Grass_side.png"));
+            GRASS_TEXTURE[1] = TextureLoader.getTexture("PNG", new FileInputStream("Grass_top.png"));
+            GRASS_TEXTURE[2] = TextureLoader.getTexture("PNG", new FileInputStream("Grass_bottom.png"));
+            STONE_TEXTURE[0] = TextureLoader.getTexture("PNG", new FileInputStream("Stone.png"));
+            STONE_TEXTURE[1] = TextureLoader.getTexture("PNG", new FileInputStream("Stone.png"));
+            STONE_TEXTURE[2] = TextureLoader.getTexture("PNG", new FileInputStream("Stone.png"));
+            WATER_TEXTURE[0] = TextureLoader.getTexture("PNG", new FileInputStream("Water.png"));
+            WATER_TEXTURE[1] = TextureLoader.getTexture("PNG", new FileInputStream("Water.png"));
+            WATER_TEXTURE[2] = TextureLoader.getTexture("PNG", new FileInputStream("Water.png"));
             initialized = true;
         }catch (Exception e){
             StringWriter sw = new StringWriter();
@@ -38,11 +44,11 @@ public class ResourceManager {
             System.out.println(sw.toString());
         }
     }
-    public static Texture getBlockTexture(BlockType type){
+    public static Texture[] getBlockTexture(BlockType type){
         if(!initialized){
             initializeResources();
         }
-        Texture retVal;
+        Texture[] retVal;
         try {
             switch (type){
                 case BLOCK_TYPE_BEDROCK: retVal = BEDROCK_TEXTURE;

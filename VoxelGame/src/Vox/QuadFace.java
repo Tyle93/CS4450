@@ -20,14 +20,6 @@ public class QuadFace{
     Texture texture;
     Color color;
     Vector3f[] vertices;
-    public  QuadFace(Vector3f[] vertices, String texturePath){
-        this.vertices = vertices;
-        try{
-            this.texture = TextureLoader.getTexture("PNG", new FileInputStream("texturePath"));
-        }catch (IOException e){
-            texture = null;
-        }
-    }
     public QuadFace(Vector3f a, Vector3f b, Vector3f c, Vector3f d, Color color){
         vertices = new Vector3f[4];
         vertices[0] = a;
@@ -62,7 +54,6 @@ public class QuadFace{
     }
 
     public static void draw(QuadFace[] faces){
-            //GL11.glColor3f(255,0,255);
 
             Vector3f[] vectices;
 
@@ -88,15 +79,15 @@ public class QuadFace{
             vectices = faces[1].getVertices();
             GL11.glTexCoord2f(0,0);
             GL11.glVertex3d(vectices[0].x,vectices[0].y,vectices[0].z);
-            GL11.glTexCoord2f(1,0);
+            GL11.glTexCoord2f(0,1);
             GL11.glVertex3d(vectices[1].x,vectices[1].y,vectices[1].z);
             GL11.glTexCoord2f(1,1);
             GL11.glVertex3d(vectices[2].x,vectices[2].y,vectices[2].z);
-            GL11.glTexCoord2f(0,1);
+            GL11.glTexCoord2f(1,0);
             GL11.glVertex3d(vectices[3].x,vectices[3].y,vectices[3].z);
 
             GL11.glEnd();
-        Color.white.bind();
+            Color.white.bind();
             faces[2].getTexture().bind();
             GL11.glBegin(GL11.GL_QUADS);
 
@@ -111,7 +102,7 @@ public class QuadFace{
             GL11.glVertex3d(vectices[3].x,vectices[3].y,vectices[3].z);
 
             GL11.glEnd();
-        Color.white.bind();
+            Color.white.bind();
             faces[3].getTexture().bind();
             GL11.glBegin(GL11.GL_QUADS);
 
@@ -126,7 +117,7 @@ public class QuadFace{
             GL11.glVertex3d(vectices[3].x,vectices[3].y,vectices[3].z);
 
             GL11.glEnd();
-        Color.white.bind();
+            Color.white.bind();
             faces[4].getTexture().bind();
             GL11.glBegin(GL11.GL_QUADS);
 
@@ -141,7 +132,7 @@ public class QuadFace{
             GL11.glVertex3d(vectices[3].x,vectices[3].y,vectices[3].z);
 
             GL11.glEnd();
-        Color.white.bind();
+            Color.white.bind();
             faces[5].getTexture().bind();
             GL11.glBegin(GL11.GL_QUADS);
 
@@ -186,15 +177,15 @@ public class QuadFace{
                 default: color = new Color(255,0,0);
         }
         */
-        Texture tex = null;
+        Texture[] tex = null;
         tex = ResourceManager.getBlockTexture(type);
         QuadFace[] faces = {
-                new QuadFace(v[0],v[1],v[2],v[3], tex),
-                new QuadFace(v[0],v[4],v[5],v[1], tex),
-                new QuadFace(v[4],v[5],v[6],v[7], tex),
-                new QuadFace(v[7],v[6],v[2],v[3], tex),
-                new QuadFace(v[0],v[4],v[7],v[3], tex),
-                new QuadFace(v[1],v[5],v[6],v[2], tex)
+                new QuadFace(v[0],v[1],v[2],v[3], tex[0]),
+                new QuadFace(v[0],v[4],v[5],v[1], tex[2]),
+                new QuadFace(v[4],v[5],v[6],v[7], tex[0]),
+                new QuadFace(v[7],v[6],v[2],v[3], tex[1]),
+                new QuadFace(v[0],v[4],v[7],v[3], tex[0]),
+                new QuadFace(v[1],v[5],v[6],v[2], tex[0])
         };
         return faces;
     }
