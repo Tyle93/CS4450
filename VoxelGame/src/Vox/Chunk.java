@@ -19,10 +19,10 @@ public class Chunk {
         for(int i = 0; i < CHUNKSIZE; i++){
             for(int j = 0; j < CHUNKSIZE; j++){
                 for(int k = 0; k < CHUNKSIZE; k++){
-                    float zOffset = ((float) Math.floor((double)(ChunkCount/Engine.getSIZE()))-1) * CHUNKSIZE;
-                    //float zOffset = (ChunkCount % Engine.getSIZE()) * CHUNKSIZE;
+                    float zOffset = (((float) Math.floor((double)(ChunkCount/Engine.getSIZE()))) * CHUNKSIZE) % (CHUNKSIZE*Engine.getSIZE());
+                    float yOffset = ((float) Math.floor((double)(ChunkCount/(Engine.getSIZE()*Engine.getSIZE())))) * CHUNKSIZE;
                     float xOffset = (ChunkCount * CHUNKSIZE) % (Engine.getSIZE() * CHUNKSIZE);
-                    blocks[i][j][k] = new Block(i + xOffset ,j ,k + zOffset );
+                    blocks[i][j][k] = new Block(i + xOffset ,j - yOffset ,k + zOffset );
                 }
             }
         }

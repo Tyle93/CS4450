@@ -22,14 +22,10 @@ import static org.lwjgl.opengl.GL11.*;
 
 public class Engine{
     public static double scale = .01;
-    private static final int SIZE = 8;
+    private static final int SIZE = 4;
     private static final float OFFSET = .000f;
     private static Vector<Chunk> objects = new Vector<Chunk>();
     private static DisplayMode displayMode;
-    private static FloatBuffer matSpecular;
-    private static FloatBuffer lightPosition;
-    private static FloatBuffer whiteLight;
-    private static FloatBuffer lModelAmbient;
     public static void addObject(Chunk chunk){
         objects.add(chunk);
     }
@@ -81,7 +77,7 @@ public class Engine{
         }
     }
     private static void generateWorld(){
-        for(int i = 0; i < SIZE*SIZE; i++){
+        for(int i = 0; i < SIZE*SIZE*SIZE; i++){
             new Chunk();
         }
     }
