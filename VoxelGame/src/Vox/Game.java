@@ -10,6 +10,7 @@ package Vox;
 import org.lwjgl.input.Keyboard;
 import org.lwjgl.input.Mouse;
 import org.lwjgl.opengl.Display;
+import org.lwjgl.util.vector.Vector3f;
 
 import static org.lwjgl.opengl.GL11.*;
 
@@ -17,6 +18,9 @@ public class Game {
     private static Camera camera;
     private static float mouseSensitivity = 0.09f;
     private static float movementSpeed = .9f;
+    public static Vector3f getCameraPosition(){
+        return camera.getPosition();
+    }
     public static void gameLoop() {
         camera = new Camera(0, -20, 0);
         float dx = 0.0f;

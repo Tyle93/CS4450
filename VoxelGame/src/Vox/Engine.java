@@ -10,9 +10,9 @@ package Vox;
 import org.lwjgl.BufferUtils;
 import org.lwjgl.opengl.Display;
 import org.lwjgl.opengl.DisplayMode;
-import org.lwjgl.opengl.GL11;
+import org.lwjgl.opengl.GL11.*;
+import static org.lwjgl.opengl.GL20.*;
 import org.lwjgl.util.glu.GLU;
-
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.FloatBuffer;
@@ -22,7 +22,7 @@ import static org.lwjgl.opengl.GL11.*;
 
 public class Engine{
     public static double scale = .01;
-    private static final int SIZE = 4;
+    private static final int SIZE = 16;
     private static final float OFFSET = .000f;
     private static Vector<Chunk> objects = new Vector<Chunk>();
     private static DisplayMode displayMode;
@@ -56,8 +56,15 @@ public class Engine{
         glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST);
         glClearDepth(1.0f);
         glEnable(GL_DEPTH_TEST);
-        //glEnable(GL_LIGHTING);
         glEnable(GL_TEXTURE_2D);
+        glEnableClientState(GL_VERTEX_ARRAY);
+        //glEnableClientState(GL_COLOR_ARRAY);
+        //glShadeModel(GL_SMOOTH);
+        //glEnable(GL_LIGHTING);
+        //glEnable(GL_LIGHT0);
+        //glLightModel(GL_LIGHT_MODEL_AMBIENT, createFloatBuffer(new float[]{.05f,.05f,.05f,1f}));
+        //glLight(GL_LIGHT0,GL_DIFFUSE, createFloatBuffer(new float[]{1.5f,1.5f,1.5f,1f}));
+        //glColorMaterial(GL_FRONT, GL_DIFFUSE);
     }
 
     public static float getOFFSET() {
@@ -76,8 +83,15 @@ public class Engine{
             }
         }
     }
+    public static FloatBuffer createFloatBuffer(float[] vals){
+        FloatBuffer buffer = BufferUtils.createFloatBuffer(vals.length);
+        buffer.put(vals);
+        buffer.flip();
+        return buffer;
+
+    }
     private static void generateWorld(){
-        for(int i = 0; i < SIZE*SIZE*SIZE; i++){
+        for(int i = 0; i < SIZE*SIZE; i++){
             new Chunk();
         }
     }

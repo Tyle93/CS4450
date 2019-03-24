@@ -16,6 +16,11 @@ public class Camera {
     private Vector3f lPosition = null;
     private float yaw = 0.0f;
     private float pitch = 0.0f;
+
+    public Vector3f getPosition() {
+        return position;
+    }
+
     public Camera(float x, float y, float z)
     {
         position = new Vector3f(x, y, z);

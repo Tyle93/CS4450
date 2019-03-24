@@ -1,21 +1,34 @@
 package Vox;
 
+import org.lwjgl.BufferUtils;
 import org.lwjgl.Sys;
+import org.lwjgl.opengl.GL11;
+import org.lwjgl.opengl.GL20;
+import org.lwjgl.opengl.GL15;
 
+import java.nio.FloatBuffer;
 import java.util.Arrays;
+
+import static org.lwjgl.opengl.GL11.GL_FLOAT;
+import static org.lwjgl.opengl.GL11.GL_QUADS;
+import static org.lwjgl.opengl.GL11.glColorPointer;
+import static org.lwjgl.opengl.GL15.GL_ARRAY_BUFFER;
 
 public class Chunk {
     private static int ChunkCount = 0;
-    private final int CHUNKSIZE  = 32;
+    private final int CHUNKSIZE  = 20;
     private final double scale = .008;
     private final int seed = 543332;
+    private int vertHandle;
+    private int textHandle;
     Block[][][] blocks;
     public boolean isActive = true;
     public Chunk(){
+        vertHandle = GL15.glGenBuffers();
+        textHandle = GL15.glGenBuffers();
         double[][] noise = new double[CHUNKSIZE][CHUNKSIZE];
         SimplexNoise_octave simp = new SimplexNoise_octave(seed);
         blocks = new Block[CHUNKSIZE][CHUNKSIZE][CHUNKSIZE];
-        //Arrays.fill(blocks,null);
         for(int i = 0; i < CHUNKSIZE; i++){
             for(int j = 0; j < CHUNKSIZE; j++){
                 for(int k = 0; k < CHUNKSIZE; k++){
@@ -35,7 +48,6 @@ public class Chunk {
         for(int i = 0; i < CHUNKSIZE; i++){
             for(int j = 0; j < CHUNKSIZE; j++){
                 currentHeight = (int)(CHUNKSIZE * ((noise[i][j] + 1)/2));
-                //System.out.println(currentHeight);
                 if(currentHeight == 0){
                     currentHeight = 1;
                 }
@@ -48,16 +60,38 @@ public class Chunk {
         }
         Engine.addObject(this);
         ChunkCount++;
+        rebuildChunk();
     }
-    public void draw(){
+    public void rebuildChunk(){
+        FloatBuffer vertBuff = BufferUtils.createFloatBuffer(CHUNKSIZE * CHUNKSIZE * CHUNKSIZE * 72);
         for(Block[][] b : blocks){
             for(Block[] c : b){
                 for(Block d : c){
                     if(d.isActive && d !=  null){
-                        d.draw();
+                        vertBuff.put(d.getVertData());
                     }
                 }
             }
         }
+        vertBuff.flip();
+        GL15.glBindBuffer(GL_ARRAY_BUFFER, vertHandle);
+        GL15.glBufferData(GL_ARRAY_BUFFER, vertBuff,GL15.GL_STATIC_DRAW);
+        GL15.glBindBuffer(GL_ARRAY_BUFFER, 0);
+    }
+    public void draw(){
+        //for(Block[][] b : blocks){
+        //    for(Block[] c : b){
+        //        for(Block d : c){
+        //            if(d.isActive && d !=  null){
+        //                d.draw();
+        //            }
+        //        }
+        //    }
+        //}
+        GL11.glPushMatrix();
+        GL15.glBindBuffer(GL_ARRAY_BUFFER, vertHandle);
+        GL11.glVertexPointer(3, GL_FLOAT, 0, 0L);
+        GL11.glDrawArrays(GL_QUADS, 0, CHUNKSIZE * CHUNKSIZE * CHUNKSIZE * 24);
+        GL11.glPopMatrix();
     }
 }
