@@ -9,14 +9,13 @@ import org.lwjgl.opengl.GL15;
 import java.nio.FloatBuffer;
 import java.util.Arrays;
 
-import static org.lwjgl.opengl.GL11.GL_FLOAT;
-import static org.lwjgl.opengl.GL11.GL_QUADS;
-import static org.lwjgl.opengl.GL11.glColorPointer;
+import static org.lwjgl.opengl.GL11.*;
 import static org.lwjgl.opengl.GL15.GL_ARRAY_BUFFER;
+import static org.lwjgl.opengl.GL15.GL_DYNAMIC_DRAW;
 
 public class Chunk {
     private static int ChunkCount = 0;
-    private final int CHUNKSIZE  = 20;
+    private final int CHUNKSIZE  = 8;
     private final double scale = .008;
     private final int seed = 543332;
     private int vertHandle;
@@ -52,10 +51,9 @@ public class Chunk {
                     currentHeight = 1;
                 }
                 blocks[i][currentHeight][j].isActive = true;
-                //for(int k = 0; k < currentHeight; k++){
-                //    //blocks[i][k][j] = new Block(i+(Engine.getOFFSET() * i),k + (Engine.getOFFSET() * k),j + (Engine.getOFFSET() * j));
-                //    blocks[i][k][j].isActive = true;
-                //}
+                for(int k = 0; k < currentHeight; k++){
+                    //blocks[i][k][j].isActive = true;
+                }
             }
         }
         Engine.addObject(this);
@@ -75,8 +73,11 @@ public class Chunk {
         }
         vertBuff.flip();
         GL15.glBindBuffer(GL_ARRAY_BUFFER, vertHandle);
-        GL15.glBufferData(GL_ARRAY_BUFFER, vertBuff,GL15.GL_STATIC_DRAW);
+        GL15.glBufferData(GL_ARRAY_BUFFER, vertBuff,GL15.GL_DYNAMIC_DRAW);
         GL15.glBindBuffer(GL_ARRAY_BUFFER, 0);
+        //glGenTextures()
+       //GL15.glBindBuffer(GL_ARRAY_BUFFER, textHandle);
+       //GL15.glBufferData(GL_ARRAY_BUFFER, ResourceManager.getBlockTexture(BlockType.BLOCK_TYPE_GRASS)[0].getTextureData(),GL_DYNAMIC_DRAW);
     }
     public void draw(){
         //for(Block[][] b : blocks){
@@ -91,6 +92,8 @@ public class Chunk {
         GL11.glPushMatrix();
         GL15.glBindBuffer(GL_ARRAY_BUFFER, vertHandle);
         GL11.glVertexPointer(3, GL_FLOAT, 0, 0L);
+        //GL15.glBindBuffer(GL_ARRAY_BUFFER, ResourceManager.getBlockTexture(BlockType.BLOCK_TYPE_GRASS)[0].getTextureID());
+        //GL11.glColorPointer(3,GL_BYTE,0,0L);
         GL11.glDrawArrays(GL_QUADS, 0, CHUNKSIZE * CHUNKSIZE * CHUNKSIZE * 24);
         GL11.glPopMatrix();
     }
