@@ -13,7 +13,14 @@ import org.lwjgl.opengl.Display;
 import org.lwjgl.util.vector.Vector3f;
 
 import static org.lwjgl.opengl.GL11.*;
-
+/*
+    Name: Tyler Crouch,Brandon Helt, Kelvin Huang, Christian Munoz
+    Assignment: Project Checkpoint #2
+    Class: CS 4450 - Computer Graphics
+    Last Modified: 03/27/2019
+    File Name: Game.java
+    Purpose: Simple class that contains our camera and our main logic loop.
+ */
 public class Game {
     private static Camera camera;
     private static float mouseSensitivity = 0.09f;
@@ -21,6 +28,8 @@ public class Game {
     public static Vector3f getCameraPosition(){
         return camera.getPosition();
     }
+    // Method:  gameLoop
+    // Purpose: Refreshes camera position and draws all objects to screen.
     public static void gameLoop() {
         camera = new Camera(0, -20, 0);
         float dx = 0.0f;
@@ -41,6 +50,8 @@ public class Game {
         }
         Display.destroy();
     }
+    // Method: processInput()
+    // Purpose: Handles and keyboard input
     private static void processInput(){
         if (Keyboard.isKeyDown(Keyboard.KEY_W)){
             camera.walkForward(movementSpeed);

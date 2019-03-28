@@ -1,11 +1,12 @@
 package Vox;
 /*
-    Name: Tyler Crouch
-    Assignment: Project Checkpoint #1
-    Class: CS 4450
-    Last Modified: 03/11/2019
-
+    Name: Tyler Crouch,Brandon Helt, Kelvin Huang, Christian Munoz
+    Assignment: Project Checkpoint #2
+    Class: CS 4450 - Computer Graphics
+    Last Modified: 03/27/2019
     File Name: Engine.java
+    Purpose: Object that dictates most of our OpenGl state variables as well as the
+    being responsible for the rendering of each of the chunks.
  */
 import org.lwjgl.BufferUtils;
 import org.lwjgl.opengl.Display;
@@ -23,7 +24,6 @@ import static org.lwjgl.opengl.GL11.*;
 public class Engine{
     public static double scale = .01;
     private static final int SIZE = 16;
-    private static final float OFFSET = .000f;
     private static Vector<Chunk> objects = new Vector<Chunk>();
     private static DisplayMode displayMode;
     public static void addObject(Chunk chunk){
@@ -36,16 +36,21 @@ public class Engine{
             }
         }
     }
+    // Method: getSize()
+    // Purpose: returns the current size of the chunk grid/
     public static int getSIZE() {
         return SIZE;
     }
-
+    // Method: start()
+    // Purpose: initializes our window and all of the opengl variables.
     public static void start(){
         createWindow();
         initGL();
         generateWorld();
         Game.gameLoop();
     }
+    // Method: initGL()
+    // Purpose: initializes our openGL states.
     private static void initGL() {
         glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
         glMatrixMode(GL_PROJECTION);
@@ -58,18 +63,10 @@ public class Engine{
         glEnable(GL_DEPTH_TEST);
         glEnable(GL_TEXTURE_2D);
         glEnableClientState(GL_VERTEX_ARRAY);
-        //glEnableClientState(GL_COLOR_ARRAY);
-        //glShadeModel(GL_SMOOTH);
-        //glEnable(GL_LIGHTING);
-        //glEnable(GL_LIGHT0);
-        //glLightModel(GL_LIGHT_MODEL_AMBIENT, createFloatBuffer(new float[]{.05f,.05f,.05f,1f}));
-        //glLight(GL_LIGHT0,GL_DIFFUSE, createFloatBuffer(new float[]{1.5f,1.5f,1.5f,1f}));
-        //glColorMaterial(GL_FRONT, GL_DIFFUSE);
+        glEnableClientState(GL_TEXTURE_COORD_ARRAY);
     }
-
-    public static float getOFFSET() {
-        return OFFSET;
-    }
+    // Method: createWindow()
+    // Purpose: Creates a 640x480 window
     private static void createWindow(){
         try{
             Display.setFullscreen(false);
@@ -83,12 +80,8 @@ public class Engine{
             }
         }
     }
-    public static FloatBuffer createFloatBuffer(float[] vals){
-        FloatBuffer buffer = BufferUtils.createFloatBuffer(vals.length);
-        buffer.put(vals);
-        buffer.flip();
-        return buffer;
-    }
+    // Method: generateWorld
+    // Purpose: creates a 2 dimensional chunk array.
     private static void generateWorld(){
         for(int i = 0; i < SIZE*SIZE; i++){
             new Chunk();

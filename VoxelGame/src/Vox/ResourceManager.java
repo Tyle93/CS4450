@@ -1,5 +1,12 @@
 package Vox;
-
+/*
+    Name: Tyler Crouch,Brandon Helt, Kelvin Huang, Christian Munoz
+    Assignment: Project Checkpoint #2
+    Class: CS 4450 - Computer Graphics
+    Last Modified: 03/27/2019
+    File Name: ResourceManager.java
+    Purpose: Utility class meant for the initial loading of various textures and shaders.
+ */
 import org.lwjgl.opengl.GL20;
 import org.lwjgl.util.Color;
 import org.newdawn.slick.opengl.Texture;
@@ -10,40 +17,32 @@ import java.util.Scanner;
 
 public class ResourceManager {
     static private boolean initialized = false;
-    private static Texture DIRT_TEXTURE[]= new Texture[3];
-    private static Texture SAND_TEXTURE[]= new Texture[3];
-    private static Texture WATER_TEXTURE[]= new Texture[3];
-    private static Texture BEDROCK_TEXTURE[] = new Texture[3];
-    private static Texture GRASS_TEXTURE[] = new Texture[3];
-    private static Texture STONE_TEXTURE[] = new Texture[3];
+    private static Texture texMap = null;
+    private static float[] stoneCoords;
+    private static float[] sandCoords;
+    private static float[] dirtCoords;
+    private static float[] waterCoords;
+    private static float[] bedrockCoords;
+    private static float[] grassCoords;
     private static int grassShader = -1;
     private static int sandShader = -1;
     private static int stoneShader = -1;
     private static int bedrockShader = -1;
     private static int dirtShader = -1;
     private static int waterShader = -1;
-
+    private static int test;
+    // Method: initializeResources()
+    // Purpose: Loads any textures or shaders that will be used in the program.
     public static void initializeResources(){
         try {
-            BEDROCK_TEXTURE[0] = TextureLoader.getTexture("PNG", new FileInputStream("Bedrock.png"));
-            BEDROCK_TEXTURE[1] = TextureLoader.getTexture("PNG", new FileInputStream("Bedrock.png"));
-            BEDROCK_TEXTURE[2] = TextureLoader.getTexture("PNG", new FileInputStream("Bedrock.png"));
-            DIRT_TEXTURE[0] = TextureLoader.getTexture("PNG", new FileInputStream("Dirt.png"));
-            DIRT_TEXTURE[1] = TextureLoader.getTexture("PNG", new FileInputStream("Dirt.png"));
-            DIRT_TEXTURE[2] = TextureLoader.getTexture("PNG", new FileInputStream("Dirt.png"));
-            SAND_TEXTURE[0] = TextureLoader.getTexture("PNG", new FileInputStream("Sand.png"));
-            SAND_TEXTURE[1] = TextureLoader.getTexture("PNG", new FileInputStream("Sand.png"));
-            SAND_TEXTURE[2] = TextureLoader.getTexture("PNG", new FileInputStream("Sand.png"));
-            GRASS_TEXTURE[0] = TextureLoader.getTexture("PNG", new FileInputStream("Grass_side.png"));
-            GRASS_TEXTURE[1] = TextureLoader.getTexture("PNG", new FileInputStream("Grass_top.png"));
-            GRASS_TEXTURE[2] = TextureLoader.getTexture("PNG", new FileInputStream("Grass_bottom.png"));
-            STONE_TEXTURE[0] = TextureLoader.getTexture("PNG", new FileInputStream("Stone.png"));
-            STONE_TEXTURE[1] = TextureLoader.getTexture("PNG", new FileInputStream("Stone.png"));
-            STONE_TEXTURE[2] = TextureLoader.getTexture("PNG", new FileInputStream("Stone.png"));
-            WATER_TEXTURE[0] = TextureLoader.getTexture("PNG", new FileInputStream("Water.png"));
-            WATER_TEXTURE[1] = TextureLoader.getTexture("PNG", new FileInputStream("Water.png"));
-            WATER_TEXTURE[2] = TextureLoader.getTexture("PNG", new FileInputStream("Water.png"));
-            initialized = true;
+            try {
+                texMap = TextureLoader.getTexture("PNG", new FileInputStream("terrain.png"));
+                generateTexCoords();
+                initialized = true;
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
         }catch (Exception e){
             StringWriter sw = new StringWriter();
             PrintWriter pw = new PrintWriter(sw);
@@ -51,24 +50,64 @@ public class ResourceManager {
             System.out.println(sw.toString());
         }
     }
-    public static Texture[] getBlockTexture(BlockType type){
+    // Method: generateTexCoords()
+    // Purpose: generates the associated texture coordinates for each of the different block types.
+    private  static void generateTexCoords(){
+        float offset = 1024f/16f;
+        float[] temp = {
+                 offset*3, offset*10,
+                 offset*2, offset*10,
+                 offset*2, offset*9,
+                 offset*3, offset*9,
+                 offset*3, offset*1,
+                 offset*2, offset*1,
+                 offset*2, offset*0,
+                 offset*3, offset*0,
+                 offset*3, offset*0,
+                 offset*4, offset*0,
+                 offset*4, offset*1,
+                 offset*3, offset*1,
+                 offset*4, offset*1,
+                 offset*3, offset*1,
+                 offset*3, offset*0,
+                 offset*4, offset*0,
+                 offset*3, offset*0,
+                 offset*4, offset*0,
+                 offset*4, offset*1,
+                 offset*3, offset*1,
+                 offset*3, offset*0,
+                 offset*4, offset*0,
+                 offset*4, offset*1,
+                 offset*3, offset*1
+        };
+        dirtCoords = temp;
+
+    }
+    // Method: getTexMap
+    // Purpose: returns the texture atlas.
+    public static Texture getTexMap() {
+        return texMap;
+    }
+    // Method: getTexCoords
+    // Purpose: returns the associated texture coordinates for each of the block types.
+    public static float[] getTexCoords(BlockType type){
         if(!initialized){
             initializeResources();
         }
-        Texture[] retVal;
+        float[] retVal;
         try {
             switch (type){
-                case BLOCK_TYPE_BEDROCK: retVal = BEDROCK_TEXTURE;
+                case BLOCK_TYPE_BEDROCK: retVal = bedrockCoords;
                     break;
-                case BLOCK_TYPE_DIRT: retVal = DIRT_TEXTURE;
+                case BLOCK_TYPE_DIRT: retVal = dirtCoords;
                     break;
-                case BLOCK_TYPE_SAND: retVal = SAND_TEXTURE;
+                case BLOCK_TYPE_SAND: retVal = sandCoords;
                     break;
-                case BLOCK_TYPE_GRASS:retVal = GRASS_TEXTURE;
+                case BLOCK_TYPE_GRASS:retVal = grassCoords;
                     break;
-                case BLOCK_TYPE_STONE:retVal = STONE_TEXTURE;
+                case BLOCK_TYPE_STONE:retVal = stoneCoords;
                     break;
-                case BLOCK_TYPE_WATER:retVal = WATER_TEXTURE;
+                case BLOCK_TYPE_WATER:retVal = waterCoords;
                     break;
                 default: retVal = null;
                     break;
@@ -82,6 +121,8 @@ public class ResourceManager {
         }
         return null;
     }
+    // Method: getShader
+    // Purpose: will return the appropriate shader for each of the block types.
     public static int getShader(BlockType type) {
         switch (type) {
             case BLOCK_TYPE_BEDROCK:
@@ -125,6 +166,8 @@ public class ResourceManager {
 
         }
     }
+    // Method: generateShader()
+    // Purpose: creates a shader for the passed block type.
     private static void generateShader(BlockType type) {
         int shaderProg = GL20.glCreateProgram();
         int vh = GL20.glCreateShader(GL20.GL_VERTEX_SHADER);
@@ -230,6 +273,8 @@ public class ResourceManager {
                 break;
         }
     }
+    // Method:  readFileToString()
+    // Purpose: reads a file line by line for the purpose of being used in a shader program.
     public static StringBuilder readFileToString(String filePath){
         StringBuilder str = new StringBuilder();
         BufferedReader reader = null;

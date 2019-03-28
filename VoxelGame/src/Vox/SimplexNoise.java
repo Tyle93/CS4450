@@ -1,5 +1,12 @@
 package Vox;
-
+/*
+    Name: Tyler Crouch,Brandon Helt, Kelvin Huang, Christian Munoz
+    Assignment: Project Checkpoint #2
+    Class: CS 4450 - Computer Graphics
+    Last Modified: 03/27/2019
+    File Name: SimpleNoise.java
+    Purpose: Utility class given to us in order to generate sound for procedural generation.
+ */
 import java.util.Random;
 
 public class SimplexNoise {

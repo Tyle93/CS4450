@@ -1,11 +1,11 @@
 package Vox;
 /*
-    Name: Tyler Crouch
-    Assignment: Project Checkpoint #1
-    Class: CS 4450
-    Last Modified: 03/11/2019
-
+    Name: Tyler Crouch,Brandon Helt, Kelvin Huang, Christian Munoz
+    Assignment: Project Checkpoint #2
+    Class: CS 4450 - Computer Graphics
+    Last Modified: 03/27/2019
     File Name: Camera.java
+    Purpose: User controlled camera that allows us to modify how we are viewing the 3d space.
  */
 import org.lwjgl.util.vector.Vector3f;
 
