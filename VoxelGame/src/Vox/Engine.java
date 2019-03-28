@@ -88,7 +88,6 @@ public class Engine{
         buffer.put(vals);
         buffer.flip();
         return buffer;
-
     }
     private static void generateWorld(){
         for(int i = 0; i < SIZE*SIZE; i++){

@@ -15,7 +15,7 @@ import static org.lwjgl.opengl.GL15.GL_DYNAMIC_DRAW;
 
 public class Chunk {
     private static int ChunkCount = 0;
-    private final int CHUNKSIZE  = 8;
+    private final int CHUNKSIZE  = 16;
     private final double scale = .008;
     private final int seed = 543332;
     private int vertHandle;
@@ -61,6 +61,16 @@ public class Chunk {
         rebuildChunk();
     }
     public void rebuildChunk(){
+
+        FloatBuffer vertBuff = getBlockData();
+        GL15.glBindBuffer(GL_ARRAY_BUFFER, vertHandle);
+        GL15.glBufferData(GL_ARRAY_BUFFER, vertBuff,GL15.GL_DYNAMIC_DRAW);
+        GL15.glBindBuffer(GL_ARRAY_BUFFER, 0);
+        //glGenTextures()
+       //GL15.glBindBuffer(GL_ARRAY_BUFFER, textHandle);
+       //GL15.glBufferData(GL_ARRAY_BUFFER, ResourceManager.getBlockTexture(BlockType.BLOCK_TYPE_GRASS)[0].getTextureData(),GL_DYNAMIC_DRAW);
+    }
+    private FloatBuffer getBlockData(){
         FloatBuffer vertBuff = BufferUtils.createFloatBuffer(CHUNKSIZE * CHUNKSIZE * CHUNKSIZE * 72);
         for(Block[][] b : blocks){
             for(Block[] c : b){
@@ -72,12 +82,7 @@ public class Chunk {
             }
         }
         vertBuff.flip();
-        GL15.glBindBuffer(GL_ARRAY_BUFFER, vertHandle);
-        GL15.glBufferData(GL_ARRAY_BUFFER, vertBuff,GL15.GL_DYNAMIC_DRAW);
-        GL15.glBindBuffer(GL_ARRAY_BUFFER, 0);
-        //glGenTextures()
-       //GL15.glBindBuffer(GL_ARRAY_BUFFER, textHandle);
-       //GL15.glBufferData(GL_ARRAY_BUFFER, ResourceManager.getBlockTexture(BlockType.BLOCK_TYPE_GRASS)[0].getTextureData(),GL_DYNAMIC_DRAW);
+        return vertBuff;
     }
     public void draw(){
         //for(Block[][] b : blocks){

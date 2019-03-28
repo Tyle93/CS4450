@@ -63,6 +63,7 @@ public class Block {
                 new QuadFace(v[7],v[6],v[2],v[3], tex[1])  // Top Face
         };
         this.faces = faces;
+
     }
     public void draw(){
             Vector3f[] vertices;
