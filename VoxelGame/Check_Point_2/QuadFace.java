@@ -1,9 +1,9 @@
 package Vox;
 /*
     Name: Tyler Crouch,Brandon Helt, Kelvin Huang, Christian Munoz
-    Assignment: Project Checkpoint #3
+    Assignment: Project Checkpoint #2
     Class: CS 4450 - Computer Graphics
-    Last Modified: 04/15/2019
+    Last Modified: 03/27/2019
     File Name: QuadFace.java
     Purpose: Simple container for each of the 4 vertices of a Blocks face.
  */

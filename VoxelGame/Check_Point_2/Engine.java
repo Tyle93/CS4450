@@ -1,9 +1,9 @@
 package Vox;
 /*
     Name: Tyler Crouch,Brandon Helt, Kelvin Huang, Christian Munoz
-    Assignment: Project Checkpoint #3
+    Assignment: Project Checkpoint #2
     Class: CS 4450 - Computer Graphics
-    Last Modified: 04/15/2019
+    Last Modified: 03/27/2019
     File Name: Engine.java
     Purpose: Object that dictates most of our OpenGl state variables as well as the
     being responsible for the rendering of each of the chunks.
@@ -23,30 +23,17 @@ import static org.lwjgl.opengl.GL11.*;
 
 public class Engine{
     public static double scale = .01;
-    private static final int SIZE = 4;
+    private static final int SIZE = 16;
     private static Vector<Chunk> objects = new Vector<Chunk>();
-    private static Vector<Light> lights = new Vector<Light>();
     private static DisplayMode displayMode;
     public static void addObject(Chunk chunk){
         objects.add(chunk);
     }
-    public static void addLight(Light light){
-        lights.add(light);
-    }
     public static void Render(){
-        updateLights();
         for(Chunk c : objects){
             if(c.isActive){
                 c.draw();
             }
-        }
-    }
-    public static void updateLights(){
-        for(Light l : lights){
-            glLight(GL_LIGHT0, GL_POSITION, l.getLightPosition()); //sets our light’s position
-            glLight(GL_LIGHT0, GL_SPECULAR, l.getSpecularLight());//sets our specular light
-            glLight(GL_LIGHT0, GL_DIFFUSE, l.getDiffuseLight());//sets our diffuse light
-            glLight(GL_LIGHT0, GL_AMBIENT, l.getAmbientLight());//sets our ambient light
         }
     }
     // Method: getSize()
@@ -57,7 +44,6 @@ public class Engine{
     // Method: start()
     // Purpose: initializes our window and all of the opengl variables.
     public static void start(){
-        new Light();
         createWindow();
         initGL();
         generateWorld();
@@ -77,10 +63,7 @@ public class Engine{
         glEnable(GL_DEPTH_TEST);
         glEnable(GL_TEXTURE_2D);
         glEnableClientState(GL_VERTEX_ARRAY);
-        glEnableClientState(GL_COLOR_ARRAY);
         glEnableClientState(GL_TEXTURE_COORD_ARRAY);
-        glEnable(GL_LIGHTING);
-        glEnable(GL_LIGHT0);
     }
     // Method: createWindow()
     // Purpose: Creates a 640x480 window
@@ -104,6 +87,5 @@ public class Engine{
             new Chunk();
         }
     }
-
 }
 

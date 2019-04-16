@@ -53,179 +53,34 @@ public class ResourceManager {
     // Method: generateTexCoords()
     // Purpose: generates the associated texture coordinates for each of the different block types.
     private  static void generateTexCoords(){
-        float offset = 1024f/16f/1024f;
-        float[] dirt = {
-                offset * 2,offset*1,
-                offset* 3,offset*1,
-                offset*3,0,
-                offset * 2,0,
-                offset * 2,offset*1,
-                offset* 3,offset*1,
-                offset*3,0,
-                offset * 2,0,
-                offset * 2,offset*1,
-                offset* 3,offset*1,
-                offset*3,0,
-                offset * 2,0,
-                offset * 2,offset*1,
-                offset* 3,offset*1,
-                offset*3,0,
-                offset * 2,0, offset * 2,offset*1,
-                offset* 3,offset*1,
-                offset*3,0,
-                offset * 2,0,
-                offset * 2,offset*1,
-                offset* 3,offset*1,
-                offset*3,0,
-                offset * 2,0,
-
-
+        float offset = 1024f/16f;
+        float[] temp = {
+                 offset*3, offset*10,
+                 offset*2, offset*10,
+                 offset*2, offset*9,
+                 offset*3, offset*9,
+                 offset*3, offset*1,
+                 offset*2, offset*1,
+                 offset*2, offset*0,
+                 offset*3, offset*0,
+                 offset*3, offset*0,
+                 offset*4, offset*0,
+                 offset*4, offset*1,
+                 offset*3, offset*1,
+                 offset*4, offset*1,
+                 offset*3, offset*1,
+                 offset*3, offset*0,
+                 offset*4, offset*0,
+                 offset*3, offset*0,
+                 offset*4, offset*0,
+                 offset*4, offset*1,
+                 offset*3, offset*1,
+                 offset*3, offset*0,
+                 offset*4, offset*0,
+                 offset*4, offset*1,
+                 offset*3, offset*1
         };
-        dirtCoords = dirt;
-        float[] stone = {
-                0,offset*1,
-                offset*1,offset*1,
-                offset*1,0,
-                0,0,
-                0,offset*1,
-                offset*1,offset*1,
-                offset*1,0,
-                0,0,
-                0,offset*1,
-                offset*1,offset*1,
-                offset*1,0,
-                0,0,
-                0,offset*1,
-                offset*1,offset*1,
-                offset*1,0,
-                0,0,
-                0,offset*1,
-                offset*1,offset*1,
-                offset*1,0,
-                0,0,
-                0,offset*1,
-                offset*1,offset*1,
-                offset*1,0,
-                0,0,
-
-
-        };
-        stoneCoords = stone;
-        float[] sand = {
-                offset * 2,offset*1,
-                offset* 3,offset*1,
-                offset*3,0,
-                offset * 2,0,
-                offset * 2,offset*1,
-                offset* 3,offset*1,
-                offset*3,0,
-                offset * 2,0,
-                offset * 2,offset*1,
-                offset* 3,offset*1,
-                offset*3,0,
-                offset * 2,0,
-                offset * 2,offset*1,
-                offset* 3,offset*1,
-                offset*3,0,
-                offset * 2,0, offset * 2,offset*1,
-                offset* 3,offset*1,
-                offset*3,0,
-                offset * 2,0,
-                offset * 2,offset*1,
-                offset* 3,offset*1,
-                offset*3,0,
-                offset * 2,0,
-
-
-        };
-        sandCoords = sand;
-        float[] water = {
-                offset * 2,offset*1,
-                offset* 3,offset*1,
-                offset*3,0,
-                offset * 2,0,
-                offset * 2,offset*1,
-                offset* 3,offset*1,
-                offset*3,0,
-                offset * 2,0,
-                offset * 2,offset*1,
-                offset* 3,offset*1,
-                offset*3,0,
-                offset * 2,0,
-                offset * 2,offset*1,
-                offset* 3,offset*1,
-                offset*3,0,
-                offset * 2,0, offset * 2,offset*1,
-                offset* 3,offset*1,
-                offset*3,0,
-                offset * 2,0,
-                offset * 2,offset*1,
-                offset* 3,offset*1,
-                offset*3,0,
-                offset * 2,0,
-
-
-        };
-        waterCoords = water;
-        float[] bedrock = {
-                offset * 2,offset*1,
-                offset* 3,offset*1,
-                offset*3,0,
-                offset * 2,0,
-                offset * 2,offset*1,
-                offset* 3,offset*1,
-                offset*3,0,
-                offset * 2,0,
-                offset * 2,offset*1,
-                offset* 3,offset*1,
-                offset*3,0,
-                offset * 2,0,
-                offset * 2,offset*1,
-                offset* 3,offset*1,
-                offset*3,0,
-                offset * 2,0, offset * 2,offset*1,
-                offset* 3,offset*1,
-                offset*3,0,
-                offset * 2,0,
-                offset * 2,offset*1,
-                offset* 3,offset*1,
-                offset*3,0,
-                offset * 2,0,
-
-
-        };
-        bedrockCoords = bedrock;
-        float[] grass = {
-                offset * 3,offset*1,
-                offset* 4,offset*1,
-                offset*4,0,
-                offset * 3,0,
-                offset * 3,offset*1,
-                offset* 4,offset*1,
-                offset*4,0,
-                offset * 3,0,
-                offset * 3,offset*1,
-                offset* 4,offset*1,
-                offset*4,0,
-                offset * 3,0,
-                offset * 3,offset*1,
-                offset* 4,offset*1,
-                offset*4,0,
-                offset * 3,0,
-                offset * 2,offset*1,
-                offset* 3,offset*1,
-                offset*3,0,
-                offset * 2,0,
-                offset * 1,offset*10,
-                offset* 2,offset*10,
-                offset*2,offset*9,
-                offset * 1,offset*9,
-
-
-
-        };
-        grassCoords = grass;
-
+        dirtCoords = temp;
 
     }
     // Method: getTexMap

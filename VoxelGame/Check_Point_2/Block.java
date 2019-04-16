@@ -10,9 +10,9 @@ import java.nio.FloatBuffer;
 
 /*
     Name: Tyler Crouch,Brandon Helt, Kelvin Huang, Christian Munoz
-    Assignment: Project Checkpoint #3
+    Assignment: Project Checkpoint #2
     Class: CS 4450 - Computer Graphics
-    Last Modified: 04/15/2019
+    Last Modified: 03/27/2019
     File Name: Chunk.java
     Purpose: This class holds the 6 Quadface object classes. The main function
     of this class is basically drawing the 6 quads that were created. This class
@@ -83,9 +83,9 @@ public class Block {
     // Purpose: Sets the type of block based on its y position.
     public void setBlockType(){
         if(yPos >= 0){
-            if(yPos >= 18) {
+            if(yPos >= 24) {
                 type = BlockType.BLOCK_TYPE_STONE;
-            }else if(yPos > 8){
+            }else if(yPos > 10){
                 type = BlockType.BLOCK_TYPE_GRASS;
             }
             else{
@@ -113,9 +113,5 @@ public class Block {
 
     public float getzPos() {
         return zPos;
-    }
-
-    public BlockType getType() {
-        return type;
     }
 }

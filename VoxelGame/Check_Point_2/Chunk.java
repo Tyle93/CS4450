@@ -6,7 +6,6 @@ import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL20;
 import org.lwjgl.opengl.GL15;
 
-import java.nio.Buffer;
 import java.nio.FloatBuffer;
 import java.util.Arrays;
 import java.util.Random;
@@ -17,28 +16,26 @@ import static org.lwjgl.opengl.GL15.GL_DYNAMIC_DRAW;
 import static org.lwjgl.opengl.GL15.GL_STATIC_DRAW;
 /*
     Name: Tyler Crouch,Brandon Helt, Kelvin Huang, Christian Munoz
-    Assignment: Project Checkpoint #3
+    Assignment: Project Checkpoint #2
     Class: CS 4450 - Computer Graphics
-    Last Modified: 04/15/2019
+    Last Modified: 03/27/2019
     File Name: Chunk.java
     Purpose: Acts as a container for a 3 Dimensional Array of Blocks that is used to render
     blocks in batches.
  */
 public class Chunk {
     private static int ChunkCount = 0;
-    private final int CHUNKSIZE  = 32;
-    private final double scale = .015;
+    private final int CHUNKSIZE  = 16;
+    private final double scale = .008;
     //private int seed = 543332;
     private static int seed = new Random().nextInt();
     private int vertHandle;
     private int textHandle;
-    private int colorHandle;
     Block[][][] blocks;
     public boolean isActive = true;
     public Chunk(){
         vertHandle = GL15.glGenBuffers();
         textHandle = GL15.glGenBuffers();
-        colorHandle = GL15.glGenBuffers();
         double[][] noise = new double[CHUNKSIZE][CHUNKSIZE];
         SimplexNoise_octave simp = new SimplexNoise_octave(seed);
         blocks = new Block[CHUNKSIZE][CHUNKSIZE][CHUNKSIZE];
@@ -64,9 +61,9 @@ public class Chunk {
                 if(currentHeight == 0){
                     currentHeight = 1;
                 }
-                //blocks[i][currentHeight][j].isActive = true;
+                blocks[i][currentHeight][j].isActive = true;
                 for(int k = 0; k < currentHeight; k++){
-                    blocks[i][k][j].isActive = true;
+                    //blocks[i][k][j].isActive = true;
                 }
             }
         }
@@ -77,19 +74,17 @@ public class Chunk {
     // Method: rebuildChunk
     // Purpose: refreshes the vertex and texture coordinate buffers for the chunk.
     public void rebuildChunk(){
+
         FloatBuffer vertBuff = getVertData();
         GL15.glBindBuffer(GL_ARRAY_BUFFER, vertHandle);
         GL15.glBufferData(GL_ARRAY_BUFFER, vertBuff,GL15.GL_STATIC_DRAW);
         GL15.glBindBuffer(GL_ARRAY_BUFFER, 0);
-        FloatBuffer colorBuff = getCubeColor();
-        GL15.glBindBuffer(GL_ARRAY_BUFFER, colorHandle);
-        GL15.glBufferData(GL_ARRAY_BUFFER, colorBuff, GL_STATIC_DRAW);
-        GL15.glBindBuffer(GL_ARRAY_BUFFER,0);
         FloatBuffer texBuff = getTexData();
         GL15.glBindBuffer(GL_ARRAY_BUFFER, textHandle);
         GL15.glBufferData(GL_ARRAY_BUFFER, texBuff, GL_STATIC_DRAW);
-        GL15.glBindBuffer(GL_ARRAY_BUFFER, 0);
-
+        //glGenTextures()
+       //GL15.glBindBuffer(GL_ARRAY_BUFFER, textHandle);
+       //GL15.glBufferData(GL_ARRAY_BUFFER, ResourceManager.getBlockTexture(BlockType.BLOCK_TYPE_GRASS)[0].getTextureData(),GL_DYNAMIC_DRAW);
     }
     // Method: getVertData
     // Purpose: Retreives the vertex data for every block in the chunk and returns it as a floatbuffer.
@@ -115,7 +110,7 @@ public class Chunk {
             for(Block[] c : b){
                 for(Block d : c){
                     if(d.isActive && d !=  null){
-                        texBuff.put(ResourceManager.getTexCoords(d.getType()));
+                        texBuff.put(d.getVertData());
                     }
                 }
             }
@@ -123,54 +118,12 @@ public class Chunk {
         texBuff.flip();
         return texBuff;
     }
-    private FloatBuffer getCubeColor(){
-        FloatBuffer buff = BufferUtils.createFloatBuffer(CHUNKSIZE * CHUNKSIZE * CHUNKSIZE * 72);
-        for(Block[][] b : blocks){
-            for(Block[] c : b){
-                for(Block d : c){
-                    if(d.isActive && d !=  null){
-                        float[] temp = {
-                                1,1,1,
-                                1,1,1,
-                                1,1,1,
-                                1,1,1,
-                                1,1,1,
-                                1,1,1,
-                                1,1,1,
-                                1,1,1,
-                                1,1,1,
-                                1,1,1,
-                                1,1,1,
-                                1,1,1,
-                                1,1,1,
-                                1,1,1,
-                                1,1,1,
-                                1,1,1,
-                                1,1,1,
-                                1,1,1,
-                                1,1,1,
-                                1,1,1,
-                                1,1,1,
-                                1,1,1,
-                                1,1,1,
-                                1,1,1
-                        };
-                        buff.put(temp);
-                    }
-                }
-            }
-        }
-        buff.flip();
-        return buff;
-    }
     // Method: draw()
     // Purpose: Binds the vertex and texture coordinate buffers and the draws the blocks based on the arrays.
     public void draw(){
         GL11.glPushMatrix();
         GL15.glBindBuffer(GL_ARRAY_BUFFER, vertHandle);
         GL11.glVertexPointer(3, GL_FLOAT, 0, 0L);
-        GL15.glBindBuffer(GL_ARRAY_BUFFER, colorHandle);
-        glColorPointer(3,GL_FLOAT, 0, 0L);
         GL15.glBindBuffer(GL_ARRAY_BUFFER, textHandle);
         glBindTexture(GL_TEXTURE_2D, ResourceManager.getTexMap().getTextureID());
         glTexCoordPointer(2,GL_FLOAT,0,0L);

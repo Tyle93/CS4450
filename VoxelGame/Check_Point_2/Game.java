@@ -15,9 +15,9 @@ import org.lwjgl.util.vector.Vector3f;
 import static org.lwjgl.opengl.GL11.*;
 /*
     Name: Tyler Crouch,Brandon Helt, Kelvin Huang, Christian Munoz
-    Assignment: Project Checkpoint #3
+    Assignment: Project Checkpoint #2
     Class: CS 4450 - Computer Graphics
-    Last Modified: 04/15/2019
+    Last Modified: 03/27/2019
     File Name: Game.java
     Purpose: Simple class that contains our camera and our main logic loop.
  */
@@ -44,7 +44,7 @@ public class Game {
             glLoadIdentity();
             camera.lookThrough();
             glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-            Engine.Render();
+            Engine.Render();;
             Display.update();
             Display.sync(60);
         }

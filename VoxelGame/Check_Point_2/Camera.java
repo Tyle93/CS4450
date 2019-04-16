@@ -1,16 +1,13 @@
 package Vox;
 /*
     Name: Tyler Crouch,Brandon Helt, Kelvin Huang, Christian Munoz
-    Assignment: Project Checkpoint #3
+    Assignment: Project Checkpoint #2
     Class: CS 4450 - Computer Graphics
-    Last Modified: 04/15/2019
+    Last Modified: 03/27/2019
     File Name: Camera.java
     Purpose: User controlled camera that allows us to modify how we are viewing the 3d space.
  */
-import org.lwjgl.BufferUtils;
 import org.lwjgl.util.vector.Vector3f;
-
-import java.nio.FloatBuffer;
 
 import static org.lwjgl.opengl.GL11.*;
 
@@ -46,10 +43,6 @@ public class Camera {
         float zOffset = distance * (float)Math.cos(Math.toRadians(yaw));
         position.x -= xOffset;
         position.z += zOffset;
-        FloatBuffer lightPosition = BufferUtils.createFloatBuffer(4);
-        lightPosition.put(lPosition.x-=xOffset).put(
-                lPosition.y).put(lPosition.z+=zOffset).put(1.0f).flip();
-        glLight(GL_LIGHT0, GL_POSITION, lightPosition);
     }
     public void walkBackwards(float distance)
     {
@@ -57,10 +50,6 @@ public class Camera {
         float zOffset = distance * (float)Math.cos(Math.toRadians(yaw));
         position.x += xOffset;
         position.z -= zOffset;
-        FloatBuffer lightPosition = BufferUtils.createFloatBuffer(4);
-        lightPosition.put(lPosition.x-=xOffset).put(
-                lPosition.y).put(lPosition.z+=zOffset).put(1.0f).flip();
-        glLight(GL_LIGHT0, GL_POSITION, lightPosition);
     }
     public void strafeLeft(float distance)
     {
@@ -68,10 +57,6 @@ public class Camera {
         float zOffset = distance * (float)Math.cos(Math.toRadians(yaw-90));
         position.x -= xOffset;
         position.z += zOffset;
-        FloatBuffer lightPosition = BufferUtils.createFloatBuffer(4);
-        lightPosition.put(lPosition.x-=xOffset).put(
-                lPosition.y).put(lPosition.z+=zOffset).put(1.0f).flip();
-        glLight(GL_LIGHT0, GL_POSITION, lightPosition);
     }
     public void strafeRight(float distance)
     {
@@ -79,10 +64,6 @@ public class Camera {
         float zOffset = distance * (float)Math.cos(Math.toRadians(yaw+90));
         position.x -= xOffset;
         position.z += zOffset;
-        FloatBuffer lightPosition = BufferUtils.createFloatBuffer(4);
-        lightPosition.put(lPosition.x-=xOffset).put(
-                lPosition.y).put(lPosition.z+=zOffset).put(1.0f).flip();
-        glLight(GL_LIGHT0, GL_POSITION, lightPosition);
     }
     public void moveUp(float distance)
     {
@@ -99,9 +80,6 @@ public class Camera {
         glRotatef(pitch, 1.0f, 0.0f, 0.0f);
         glRotatef(yaw, 0.0f, 1.0f, 0.0f);
         glTranslatef(position.x, position.y, position.z);
-        FloatBuffer lightPosition = BufferUtils.createFloatBuffer(4);
-        lightPosition.put(lPosition.x).put(lPosition.y).put(lPosition.z).put(1.0f).flip();
-        glLight(GL_LIGHT0, GL_POSITION, lightPosition);
     }
 
 }
