@@ -25,7 +25,7 @@ import static org.lwjgl.opengl.GL11.*;
 
 public class Engine{
     public static double scale = .01;
-    private static final int SIZE = 2;
+    private static final int SIZE = 4;
     private static Vector<Chunk> objects = new Vector<Chunk>();
     private static Vector<Light> lights = new Vector<Light>();
     private static DisplayMode displayMode;
@@ -49,13 +49,11 @@ public class Engine{
     public static void updateLights(){
         for(Light l : lights){
             l.setPos(new Vector3f((float)(l.getOrbitPoint().x + Math.cos(Math.toRadians(l.orbitAngle))*l.getOrbitRadius()), (float)(l.getOrbitPoint().y + Math.sin(Math.toRadians(l.orbitAngle))*l.getOrbitRadius()),l.getOrbitPoint().z));
-            l.orbitAngle += .1;
+            l.orbitAngle += 1;
             glLight(GL_LIGHT0, GL_POSITION, l.getLightPosition()); //sets our light’s position
-
             glLight(GL_LIGHT0, GL_SPECULAR, l.getSpecularLight());//sets our specular light
             glLight(GL_LIGHT0, GL_DIFFUSE, l.getDiffuseLight());//sets our diffuse light
             glLight(GL_LIGHT0, GL_AMBIENT, l.getAmbientLight());//sets our ambient light
-
         }
     }
     // Method: getSize()
@@ -79,7 +77,7 @@ public class Engine{
         glMatrixMode(GL_PROJECTION);
         glLoadIdentity();
         GLU.gluPerspective(100.0f, (float)displayMode.getWidth()/(float)
-                displayMode.getHeight(), 0.1f, 200);
+                displayMode.getHeight(), 0.1f, 500);
         glMatrixMode(GL_MODELVIEW);
         glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST);
         glClearDepth(1.0f);
@@ -90,6 +88,7 @@ public class Engine{
         glEnableClientState(GL_TEXTURE_COORD_ARRAY);
         glEnable(GL_LIGHTING);
         glEnable(GL_LIGHT0);
+
     }
     // Method: createWindow()
     // Purpose: Creates a 640x480 window

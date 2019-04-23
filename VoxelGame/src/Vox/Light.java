@@ -39,7 +39,7 @@ public class Light {
     public Light(Vector3f pos){
         this.pos = pos;
         ambient = new Vector3f(.4f,.4f,.4f);
-        diffuse = new Vector3f(1,1,1);
+        diffuse = new Vector3f(.9f,.9f,.9f);
         specular = new Vector3f(.5f,.5f,.5f);
         initLightArrays();
         Engine.addLight(this);
@@ -79,14 +79,14 @@ public class Light {
         specularLightBuffer = BufferUtils.createFloatBuffer(4);
         specularLightBuffer.put(specular.x).put(specular.y).put(specular.z).put(0f).flip();
         orbitPoint = new Vector3f(Chunk.getCHUNKSIZE() * Engine.getSIZE() /2, Chunk.getCHUNKSIZE()/2,Chunk.getCHUNKSIZE() * Engine.getSIZE()/2);
-        orbitRadius = Engine.getSIZE() * Chunk.getCHUNKSIZE()/2 + Chunk.getCHUNKSIZE()/2;
+        orbitRadius = Engine.getSIZE() * Chunk.getCHUNKSIZE()/2 + Chunk.getCHUNKSIZE()*2;
         orbitAngle = 0;
     }
 
     public void setPos(Vector3f pos) {
         this.pos = pos;
         lightPositionBuffer = BufferUtils.createFloatBuffer(4);
-        lightPositionBuffer.put(getX()).put(getY()).put(getZ()).put(0f).flip();
+        lightPositionBuffer.put(pos.x).put(pos.y).put(pos.z).put(1f).flip();
     }
     public float getX(){
         return pos.x;

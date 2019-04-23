@@ -42,7 +42,7 @@ public class Block {
             for(int i = 0; i < faces.length; i++){
                 float[] temp = faces[i].getFloatArray();
                 for(int j = 0; j < temp.length; j++){
-                    System.out.println(i * temp.length + j);
+                    //System.out.println(i * temp.length + j);
                     retVal[i * temp.length + j] =  temp[j];
                 }
             }
