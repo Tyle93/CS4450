@@ -26,7 +26,7 @@ import static org.lwjgl.opengl.GL15.GL_STATIC_DRAW;
  */
 public class Chunk {
     private static int ChunkCount = 0;
-    private final int CHUNKSIZE  = 32;
+    private static final int CHUNKSIZE  = 16;
     private final double scale = .015;
     //private int seed = 543332;
     private static int seed = new Random().nextInt();
@@ -35,6 +35,11 @@ public class Chunk {
     private int colorHandle;
     Block[][][] blocks;
     public boolean isActive = true;
+
+    public static int getCHUNKSIZE() {
+        return CHUNKSIZE;
+    }
+
     public Chunk(){
         vertHandle = GL15.glGenBuffers();
         textHandle = GL15.glGenBuffers();
