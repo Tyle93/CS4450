@@ -26,14 +26,23 @@ public class Block {
     private float[] verts = null;
     private float[] texCoords = null;
     private BlockType type;
+    private Chunk parent;
+    private Vector3f index;
     public  boolean isActive = false;
-    public Block(float xPos, float yPos, float zPos){
+    public Block(float xPos, float yPos, float zPos, Chunk parent, Vector3f index){
         this.xPos = xPos;
         this.yPos = yPos;
         this.zPos = zPos;
+        setIndex(index);
+        setParent(parent);
         setBlockType();
         generateFaces();
     }
+
+    public void setParent(Chunk parent) {
+        this.parent = parent;
+    }
+
     // Method: getVertData
     // Purpose: returns a float array containing the coordinates of all 6 faces vertices.
     public float[] getVertData(){
@@ -52,6 +61,11 @@ public class Block {
             return verts;
         }
     }
+
+    public void setIndex(Vector3f index) {
+        this.index = index;
+    }
+
     // Method:  getTexCoords
     // Purpose: returns the texture mapping coordinates for this block.
     public float[] getTexCoords(){
@@ -86,7 +100,12 @@ public class Block {
             if(yPos >= 18) {
                 type = BlockType.BLOCK_TYPE_STONE;
             }else if(yPos > 8){
-                type = BlockType.BLOCK_TYPE_GRASS;
+                if(!parent.blockCheck((int)index.x,(int)index.y+1,(int)index.z)){
+                    type = BlockType.BLOCK_TYPE_GRASS;
+
+                }else{
+                    type = BlockType.BLOCK_TYPE_DIRT;
+                }
             }
             else{
                 type = BlockType.BLOCK_TYPE_DIRT;

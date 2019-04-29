@@ -5,6 +5,7 @@ import org.lwjgl.Sys;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL20;
 import org.lwjgl.opengl.GL15;
+import org.lwjgl.util.vector.Vector3f;
 
 import java.nio.Buffer;
 import java.nio.FloatBuffer;
@@ -53,7 +54,7 @@ public class Chunk {
                     float zOffset = (((float) Math.floor((double)(ChunkCount/Engine.getSIZE()))) * CHUNKSIZE) % (CHUNKSIZE*Engine.getSIZE());
                     float yOffset = ((float) Math.floor((double)(ChunkCount/(Engine.getSIZE()*Engine.getSIZE())))) * CHUNKSIZE;
                     float xOffset = (ChunkCount * CHUNKSIZE) % (Engine.getSIZE() * CHUNKSIZE);
-                    blocks[i][j][k] = new Block(i + xOffset ,j - yOffset ,k + zOffset );
+                    blocks[i][j][k] = new Block(i + xOffset ,j - yOffset ,k + zOffset,this,new Vector3f(i,j,k) );
                 }
             }
         }
@@ -182,5 +183,13 @@ public class Chunk {
         glTexCoordPointer(2,GL_FLOAT,0,0L);
         GL11.glDrawArrays(GL_QUADS, 0, CHUNKSIZE * CHUNKSIZE * CHUNKSIZE * 24);
         GL11.glPopMatrix();
+    }
+    public boolean blockCheck(int x, int y, int z){
+        try{
+            return blocks[x][y][z].isActive;
+
+        }catch (Exception e){
+            return false;
+        }
     }
 }
