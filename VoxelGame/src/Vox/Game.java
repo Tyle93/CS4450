@@ -25,13 +25,10 @@ public class Game {
     private static Camera camera;
     private static float mouseSensitivity = 0.09f;
     private static float movementSpeed = .9f;
-    public static Vector3f getCameraPosition(){
-        return camera.getPosition();
-    }
     // Method:  gameLoop
     // Purpose: Refreshes camera position and draws all objects to screen.
     public static void gameLoop() {
-        camera = new Camera(0, -20, 0);
+        camera = new Camera(-Engine.getSIZE()*Chunk.getCHUNKSIZE()/2, -Chunk.getCHUNKSIZE()/1.5f, -Engine.getSIZE()*Chunk.getCHUNKSIZE()/2);
         float dx = 0.0f;
         float dy = 0.0f;
         Mouse.setGrabbed(true);

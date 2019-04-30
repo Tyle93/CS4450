@@ -8,6 +8,7 @@ package Vox;
     Purpose: Utility class given to us in order to generate sound for procedural generation.
  */
 import org.lwjgl.BufferUtils;
+import org.lwjgl.opengl.GL11;
 import org.lwjgl.util.vector.Vector3f;
 import org.newdawn.slick.util.BufferedImageUtil;
 import org.omg.IOP.ENCODING_CDR_ENCAPS;
@@ -25,6 +26,7 @@ public class Light {
     private Vector3f diffuse;
     private Vector3f specular;
     private Vector3f orbitPoint;
+    private FloatBuffer lightDirection;
     public double orbitAngle;
     private float orbitRadius;
 
@@ -81,6 +83,12 @@ public class Light {
         orbitPoint = new Vector3f(Chunk.getCHUNKSIZE() * Engine.getSIZE() /2, Chunk.getCHUNKSIZE()/2,Chunk.getCHUNKSIZE() * Engine.getSIZE()/2);
         orbitRadius = Engine.getSIZE() * Chunk.getCHUNKSIZE()/2 + Chunk.getCHUNKSIZE()*2;
         orbitAngle = 0;
+        lightDirection = BufferUtils.createFloatBuffer(4);
+        lightDirection.put(orbitPoint.x).put(orbitPoint.y).put(orbitPoint.z).put(1f).flip();
+   }
+
+    public FloatBuffer getLightDirection() {
+        return lightDirection;
     }
 
     public void setPos(Vector3f pos) {

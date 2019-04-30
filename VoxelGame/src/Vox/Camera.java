@@ -46,6 +46,7 @@ public class Camera {
         float zOffset = distance * (float)Math.cos(Math.toRadians(yaw));
         position.x -= xOffset;
         position.z += zOffset;
+        checkPosition();
         FloatBuffer lightPosition = BufferUtils.createFloatBuffer(4);
         lightPosition.put(lPosition.x-=xOffset).put(
                 lPosition.y).put(lPosition.z+=zOffset).put(1.0f).flip();
@@ -57,6 +58,7 @@ public class Camera {
         float zOffset = distance * (float)Math.cos(Math.toRadians(yaw));
         position.x += xOffset;
         position.z -= zOffset;
+        checkPosition();
         FloatBuffer lightPosition = BufferUtils.createFloatBuffer(4);
         lightPosition.put(lPosition.x-=xOffset).put(
                 lPosition.y).put(lPosition.z+=zOffset).put(1.0f).flip();
@@ -68,6 +70,7 @@ public class Camera {
         float zOffset = distance * (float)Math.cos(Math.toRadians(yaw-90));
         position.x -= xOffset;
         position.z += zOffset;
+        checkPosition();
         FloatBuffer lightPosition = BufferUtils.createFloatBuffer(4);
         lightPosition.put(lPosition.x-=xOffset).put(
                 lPosition.y).put(lPosition.z+=zOffset).put(1.0f).flip();
@@ -79,6 +82,7 @@ public class Camera {
         float zOffset = distance * (float)Math.cos(Math.toRadians(yaw+90));
         position.x -= xOffset;
         position.z += zOffset;
+        checkPosition();
         FloatBuffer lightPosition = BufferUtils.createFloatBuffer(4);
         lightPosition.put(lPosition.x-=xOffset).put(
                 lPosition.y).put(lPosition.z+=zOffset).put(1.0f).flip();
@@ -87,11 +91,13 @@ public class Camera {
     public void moveUp(float distance)
     {
         position.y -= distance;
+        checkPosition();
     }
 
     public void moveDown(float distance)
     {
         position.y += distance;
+        checkPosition();
     }
 
     public void lookThrough()
@@ -103,7 +109,32 @@ public class Camera {
         lightPosition.put(lPosition.x).put(lPosition.y).put(lPosition.z).put(1.0f).flip();
         glLight(GL_LIGHT0, GL_POSITION, lightPosition);
     }
-
+    //Method: checkPosition
+    //purpose: Checks the x,y, and z coordinates of the camera to see if it has gone outside
+    // the bounds of the world. If any of the coordinates are outside of the world they the
+    // camera is wrapped back around to the other side.
+    private void checkPosition(){
+        System.out.println("\n\nX: " + position.x + "\nY: " + position.y + "\nZ: " + position.z);
+        float xMax = -Engine.getSIZE()*Chunk.getCHUNKSIZE();
+        float xMin = 0;
+        float yMax = -Chunk.getCHUNKSIZE()*1.5f;
+        float yMin = 0;
+        float zMax = xMax;
+        float zMin = 0;
+        if(position.x < xMax){
+            position.x = xMin;
+        }else if(position.x > xMin){
+            position.x = xMax;
+        }else if(position.y < yMax){
+            position.y = yMin;
+        }else if(position.y > yMin){
+            position.y = yMax;
+        }else if(position.z < zMax){
+            position.z = zMin;
+        }else if(position.z > zMin){
+            position.z = zMax;
+        }
+    }
 }
 
 

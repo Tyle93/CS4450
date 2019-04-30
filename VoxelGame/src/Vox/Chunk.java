@@ -28,7 +28,7 @@ import static org.lwjgl.opengl.GL15.GL_STATIC_DRAW;
 public class Chunk {
     private static int ChunkCount = 0;
     private static final int CHUNKSIZE  = 64;
-    private final double scale = .009;
+    private final double scale = .0065;
     //private int seed = 543332;
     private static int seed = new Random().nextInt();
     private int vertHandle;
@@ -40,7 +40,12 @@ public class Chunk {
     public static int getCHUNKSIZE() {
         return CHUNKSIZE;
     }
-
+    public Block getBlock(Vector3f pos){
+        return blocks[(int)pos.x][(int)pos.y][(int)pos.z];
+    }
+    public Block getBlock(int x, int y, int z){
+        return blocks[x][y][z];
+    }
     public Chunk(){
         vertHandle = GL15.glGenBuffers();
         textHandle = GL15.glGenBuffers();
@@ -70,9 +75,11 @@ public class Chunk {
                 if(currentHeight == 0){
                     currentHeight = 1;
                 }
-                //blocks[i][currentHeight][j].isActive = true;
+                //blocks[i][currentHeight][j].activate();
+                //System.out.println(ChunkCount);
+
                 for(int k = 0; k < currentHeight; k++){
-                    blocks[i][k][j].isActive = true;
+                    blocks[i][k][j].activate();
                     System.out.println(ChunkCount);
                 }
             }

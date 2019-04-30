@@ -82,7 +82,7 @@ public class ResourceManager {
 
         };
         dirtCoords = dirt;
-        float[] stone = {
+        float[] bedrock = {
                 0,offset*1,
                 offset*1,offset*1,
                 offset*1,0,
@@ -110,31 +110,35 @@ public class ResourceManager {
 
 
         };
-        stoneCoords = stone;
+        bedrockCoords = bedrock;
         float[] sand = {
-                offset * 2,offset*1,
-                offset* 3,offset*1,
-                offset*3,0,
-                offset * 2,0,
-                offset * 2,offset*1,
-                offset* 3,offset*1,
-                offset*3,0,
-                offset * 2,0,
-                offset * 2,offset*1,
-                offset* 3,offset*1,
-                offset*3,0,
-                offset * 2,0,
-                offset * 2,offset*1,
-                offset* 3,offset*1,
-                offset*3,0,
-                offset * 2,0, offset * 2,offset*1,
-                offset* 3,offset*1,
-                offset*3,0,
-                offset * 2,0,
-                offset * 2,offset*1,
-                offset* 3,offset*1,
-                offset*3,0,
-                offset * 2,0,
+                offset * 2,offset*2,
+                offset* 3,offset*2,
+                offset*3,offset * 1,
+                offset * 2,offset *1,
+                offset * 2,offset*2,
+                offset* 3,offset*2,
+                offset*3,offset * 1,
+                offset * 2,offset *1,
+                offset * 2,offset*2,
+                offset* 3,offset*2,
+                offset*3,offset * 1,
+                offset * 2,offset *1,
+                offset * 2,offset*2,
+                offset* 3,offset*2,
+                offset*3,offset * 1,
+                offset * 2,offset *1,
+                offset * 2,offset*2,
+                offset* 3,offset*2,
+                offset*3,offset * 1,
+                offset * 2,offset *1,
+                offset * 2,offset*2,
+                offset* 3,offset*2,
+                offset*3,offset * 1,
+                offset * 2,offset *1,
+
+
+
 
 
         };
@@ -167,34 +171,36 @@ public class ResourceManager {
 
         };
         waterCoords = water;
-        float[] bedrock = {
-                offset * 2,offset*1,
-                offset* 3,offset*1,
-                offset*3,0,
-                offset * 2,0,
-                offset * 2,offset*1,
-                offset* 3,offset*1,
-                offset*3,0,
-                offset * 2,0,
-                offset * 2,offset*1,
-                offset* 3,offset*1,
-                offset*3,0,
-                offset * 2,0,
-                offset * 2,offset*1,
-                offset* 3,offset*1,
-                offset*3,0,
-                offset * 2,0, offset * 2,offset*1,
-                offset* 3,offset*1,
-                offset*3,0,
-                offset * 2,0,
-                offset * 2,offset*1,
-                offset* 3,offset*1,
-                offset*3,0,
-                offset * 2,0,
+        float[] stone = {
+                offset *  0,offset*2,
+                offset* 1,offset*2,
+                offset*1,offset * 1,
+                offset * 0,offset*1,
+                offset *  0,offset*2,
+                offset* 1,offset*2,
+                offset*1,offset * 1,
+                offset * 0,offset*1,
+                offset *  0,offset*2,
+                offset* 1,offset*2,
+                offset*1,offset * 1,
+                offset * 0,offset*1,
+                offset *  0,offset*2,
+                offset* 1,offset*2,
+                offset*1,offset * 1,
+                offset * 0,offset*1,
+                offset *  0,offset*2,
+                offset* 1,offset*2,
+                offset*1,offset * 1,
+                offset * 0,offset*1,
+                offset *  0,offset*2,
+                offset* 1,offset*2,
+                offset*1,offset * 1,
+                offset * 0,offset*1,
+
 
 
         };
-        bedrockCoords = bedrock;
+        stoneCoords = stone;
         float[] grass = {
                 offset * 3,offset*1,
                 offset* 4,offset*1,

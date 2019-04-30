@@ -35,14 +35,17 @@ public class Block {
         this.zPos = zPos;
         setIndex(index);
         setParent(parent);
-        setBlockType();
+        //setBlockType();
         generateFaces();
     }
 
     public void setParent(Chunk parent) {
         this.parent = parent;
     }
-
+    public void activate(){
+        isActive = true;
+        setBlockType();
+    }
     // Method: getVertData
     // Purpose: returns a float array containing the coordinates of all 6 faces vertices.
     public float[] getVertData(){
@@ -96,31 +99,39 @@ public class Block {
     // Method: setBlockType
     // Purpose: Sets the type of block based on its y position.
     public void setBlockType(){
-        if(yPos >= 0){
-            if(yPos >= 18) {
-                type = BlockType.BLOCK_TYPE_STONE;
-            }else if(yPos > 8){
-                if(!parent.blockCheck((int)index.x,(int)index.y+1,(int)index.z)){
+        Block lower;
+        if(index.y - 1 >= 0){
+            lower = parent.getBlock((int)index.x,(int)index.y-1,(int)index.z);
+        }else{
+            lower = null;
+        }
+        if(lower != null){
+            if(yPos >= 0){
+                if(yPos >= 38){
+                    type = BlockType.BLOCK_TYPE_STONE;
+                    if(lower.type == BlockType.BLOCK_TYPE_GRASS){
+                        lower.setBlockType(BlockType.BLOCK_TYPE_DIRT);
+                    }
+                }else if(yPos > 20){
                     type = BlockType.BLOCK_TYPE_GRASS;
-
-                }else{
+                    if(lower.type == BlockType.BLOCK_TYPE_GRASS) {
+                        lower.setBlockType(BlockType.BLOCK_TYPE_DIRT);
+                    }
+                }else if(yPos > 10){
+                    type = BlockType.BLOCK_TYPE_SAND;
+                }else if(yPos > 2 ){
                     type = BlockType.BLOCK_TYPE_DIRT;
+                }else{
+                    type = BlockType.BLOCK_TYPE_BEDROCK;
                 }
             }
-            else{
-                type = BlockType.BLOCK_TYPE_DIRT;
-            }
-        }else if(yPos < 0 ){
-            if(yPos > -16){
-                type = BlockType.BLOCK_TYPE_DIRT;
-            }else if(yPos > -48){
-                type = BlockType.BLOCK_TYPE_STONE;
-            }
-            else{
-                type = BlockType.BLOCK_TYPE_BEDROCK;
-            }
+        }else{
+            type = BlockType.BLOCK_TYPE_BEDROCK;
         }
         texCoords = ResourceManager.getTexCoords(type);
+    }
+    public void setBlockType(BlockType type){
+        this.type = type;
     }
     public float getxPos() {
         return xPos;

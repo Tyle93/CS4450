@@ -11,6 +11,7 @@ package Vox;
 import org.lwjgl.BufferUtils;
 import org.lwjgl.opengl.Display;
 import org.lwjgl.opengl.DisplayMode;
+import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL11.*;
 import static org.lwjgl.opengl.GL20.*;
 import org.lwjgl.util.glu.GLU;
@@ -24,7 +25,6 @@ import java.util.Vector;
 import static org.lwjgl.opengl.GL11.*;
 
 public class Engine{
-    public static double scale = .01;
     private static final int SIZE = 4;
     private static Vector<Chunk> objects = new Vector<Chunk>();
     private static Vector<Light> lights = new Vector<Light>();
@@ -43,17 +43,16 @@ public class Engine{
             }
         }
     }
-    private static int getSize(){
-        return SIZE;
-    }
     public static void updateLights(){
         for(Light l : lights){
-            l.setPos(new Vector3f((float)(l.getOrbitPoint().x + Math.cos(Math.toRadians(l.orbitAngle))*l.getOrbitRadius()), (float)(l.getOrbitPoint().y + Math.sin(Math.toRadians(l.orbitAngle))*l.getOrbitRadius()),l.getOrbitPoint().z));
-            l.orbitAngle += 1;
+            l.setPos(new Vector3f((float)l.getOrbitPoint().x, (float)(l.getOrbitPoint().y - Math.sin(Math.toRadians(l.orbitAngle))*l.getOrbitRadius()),(float)(l.getOrbitPoint().z - Math.cos(Math.toRadians(l.orbitAngle))*l.getOrbitRadius())));
+            l.orbitAngle += .25;
             glLight(GL_LIGHT0, GL_POSITION, l.getLightPosition()); //sets our light’s position
             glLight(GL_LIGHT0, GL_SPECULAR, l.getSpecularLight());//sets our specular light
             glLight(GL_LIGHT0, GL_DIFFUSE, l.getDiffuseLight());//sets our diffuse light
             glLight(GL_LIGHT0, GL_AMBIENT, l.getAmbientLight());//sets our ambient light
+            glLight(GL_LIGHT0, GL_SPOT_DIRECTION, l.getLightDirection());
+
         }
     }
     // Method: getSize()
@@ -64,7 +63,7 @@ public class Engine{
     // Method: start()
     // Purpose: initializes our window and all of the opengl variables.
     public static void start(){
-        new Light(new Vector3f(50,50,100));
+        new Light(new Vector3f(getSIZE()*Chunk.getCHUNKSIZE()/2,getSIZE()*Chunk.getCHUNKSIZE()/2,getSIZE()*Chunk.getCHUNKSIZE()/2));
         createWindow();
         initGL();
         generateWorld();
