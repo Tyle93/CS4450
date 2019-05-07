@@ -26,7 +26,7 @@ import java.util.Vector;
 import static org.lwjgl.opengl.GL11.*;
 
 public class Engine{
-    private static final int SIZE = 4;
+    private static final int SIZE = 12;
     private static Vector<Chunk> objects = new Vector<Chunk>();
     private static Vector<Light> lights = new Vector<Light>();
     private static DisplayMode displayMode;
