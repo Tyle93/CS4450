@@ -108,12 +108,29 @@ public class Block {
         }
         if(lower != null){
             if(yPos >= 0){
-                if(yPos >= 38){
-                    type = BlockType.BLOCK_TYPE_STONE;
-                    if(lower.type == BlockType.BLOCK_TYPE_GRASS){
-                        lower.setBlockType(BlockType.BLOCK_TYPE_DIRT);
+                if(yPos >= 26){
+                    int i = new Random().nextInt();
+                    if (i % 2 == 0) {
+                        type = BlockType.BLOCK_TYPE_STONE;
+                        if(lower.type == BlockType.BLOCK_TYPE_GRASS) {
+                            lower.setBlockType(BlockType.BLOCK_TYPE_DIRT);
+                        }
+                    }else{
+                        type = BlockType.BLOCK_TYPE_DIRT;
                     }
-                }else if(yPos > 8){
+
+                }else if(yPos > 18){
+                    int i = new Random().nextInt();
+                    if (i % 2 == 0) {
+                        type = BlockType.BLOCK_TYPE_GRASS;
+                        if(lower.type == BlockType.BLOCK_TYPE_GRASS) {
+                            lower.setBlockType(BlockType.BLOCK_TYPE_DIRT);
+                        }
+                    }else{
+                        type = BlockType.BLOCK_TYPE_DIRT;
+                    }
+
+                }else if(yPos > 4){
                     type = BlockType.BLOCK_TYPE_GRASS;
                     if(lower.type == BlockType.BLOCK_TYPE_GRASS) {
                         lower.setBlockType(BlockType.BLOCK_TYPE_DIRT);
@@ -123,12 +140,7 @@ public class Block {
                //     type = BlockType.BLOCK_TYPE_SAND;
                // }
                 else if(yPos > 2 ){
-                    int i =  new Random().nextInt();
-                    if(i % 2 == 0){
-                        type = BlockType.BLOCK_TYPE_DIRT;
-                    }else{
-                        type = BlockType.BLOCK_TYPE_STONE;
-                    }
+                    type = BlockType.BLOCK_TYPE_SAND;
                 }else{
                     type = BlockType.BLOCK_TYPE_BEDROCK;
                 }

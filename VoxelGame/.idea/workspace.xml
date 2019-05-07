@@ -2,39 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9b00ff88-f73d-42c2-859e-eb25d2fe0b72" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/terrain2.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/terrain3.png" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Check_Point_2/Block.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Check_Point_2/BlockType.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Check_Point_2/Camera.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Check_Point_2/Chunk.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Check_Point_2/Dirt.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Check_Point_2/Engine.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Check_Point_2/Game.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Check_Point_2/Main.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Check_Point_2/QuadFace.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Check_Point_2/ResourceManager.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Check_Point_2/SimplexNoise.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Check_Point_2/SimplexNoise_octave.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Check_Point_2/terrain.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/VoxelGame/Vox/CS4450_CheckPoint_3.zip" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Vox/CS4450_CheckPoint_3.zip" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/terrain.png" afterPath="$PROJECT_DIR$/terrain1.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/VoxelGame/Vox/Block.class" afterPath="$PROJECT_DIR$/out/production/VoxelGame/Vox/Block.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/VoxelGame/Vox/Camera.class" afterPath="$PROJECT_DIR$/out/production/VoxelGame/Vox/Camera.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/VoxelGame/Vox/Chunk.class" afterPath="$PROJECT_DIR$/out/production/VoxelGame/Vox/Chunk.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/VoxelGame/Vox/Engine.class" afterPath="$PROJECT_DIR$/out/production/VoxelGame/Vox/Engine.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/VoxelGame/Vox/Game.class" afterPath="$PROJECT_DIR$/out/production/VoxelGame/Vox/Game.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/VoxelGame/Vox/ResourceManager$1.class" afterPath="$PROJECT_DIR$/out/production/VoxelGame/Vox/ResourceManager$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/VoxelGame/Vox/ResourceManager.class" afterPath="$PROJECT_DIR$/out/production/VoxelGame/Vox/ResourceManager.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Vox/Block.java" afterPath="$PROJECT_DIR$/src/Vox/Block.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Vox/Camera.java" afterPath="$PROJECT_DIR$/src/Vox/Camera.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Vox/Chunk.java" afterPath="$PROJECT_DIR$/src/Vox/Chunk.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Vox/Engine.java" afterPath="$PROJECT_DIR$/src/Vox/Engine.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Vox/Game.java" afterPath="$PROJECT_DIR$/src/Vox/Game.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Vox/ResourceManager.java" afterPath="$PROJECT_DIR$/src/Vox/ResourceManager.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -52,8 +22,8 @@
       <file leaf-file-name="BlockType.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Vox/BlockType.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="12" lean-forward="false" selection-start-line="0" selection-start-column="12" selection-end-line="0" selection-end-column="12" />
+            <state relative-caret-position="289">
+              <caret line="17" column="0" lean-forward="true" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -62,7 +32,7 @@
       <file leaf-file-name="Camera.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Vox/Camera.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="113">
+            <state relative-caret-position="215">
               <caret line="119" column="44" lean-forward="false" selection-start-line="119" selection-start-column="44" selection-end-line="119" selection-end-column="44" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -74,8 +44,8 @@
       <file leaf-file-name="Block.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Vox/Block.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="555">
-              <caret line="109" column="26" lean-forward="false" selection-start-line="109" selection-start-column="26" selection-end-line="109" selection-end-column="26" />
+            <state relative-caret-position="468">
+              <caret line="142" column="53" lean-forward="false" selection-start-line="142" selection-start-column="53" selection-end-line="142" selection-end-column="53" />
               <folding />
             </state>
           </provider>
@@ -104,8 +74,8 @@
       <file leaf-file-name="Game.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Vox/Game.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="402">
-              <caret line="71" column="42" lean-forward="true" selection-start-line="71" selection-start-column="42" selection-end-line="71" selection-end-column="42" />
+            <state relative-caret-position="317">
+              <caret line="78" column="46" lean-forward="true" selection-start-line="78" selection-start-column="46" selection-end-line="78" selection-end-column="46" />
               <folding />
             </state>
           </provider>
@@ -124,8 +94,8 @@
       <file leaf-file-name="Engine.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Vox/Engine.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-901">
-              <caret line="27" column="38" lean-forward="false" selection-start-line="27" selection-start-column="38" selection-end-line="27" selection-end-column="38" />
+            <state relative-caret-position="-646">
+              <caret line="28" column="37" lean-forward="false" selection-start-line="28" selection-start-column="37" selection-end-line="28" selection-end-column="37" />
               <folding />
             </state>
           </provider>
@@ -200,11 +170,11 @@
         <option value="$PROJECT_DIR$/src/Vox/Main.java" />
         <option value="$PROJECT_DIR$/src/Vox/QuadFace.java" />
         <option value="$PROJECT_DIR$/src/Vox/Light.java" />
-        <option value="$PROJECT_DIR$/src/Vox/Engine.java" />
         <option value="$PROJECT_DIR$/src/Vox/Camera.java" />
         <option value="$PROJECT_DIR$/src/Vox/Chunk.java" />
-        <option value="$PROJECT_DIR$/src/Vox/Block.java" />
         <option value="$PROJECT_DIR$/src/Vox/ResourceManager.java" />
+        <option value="$PROJECT_DIR$/src/Vox/Block.java" />
+        <option value="$PROJECT_DIR$/src/Vox/Engine.java" />
         <option value="$PROJECT_DIR$/src/Vox/Game.java" />
       </list>
     </option>
@@ -400,13 +370,13 @@
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3244963" sideWeight="0.34114584" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3244963" sideWeight="0.31770834" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3244963" sideWeight="0.6635417" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3244963" sideWeight="0.68541664" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3244963" sideWeight="0.33645833" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3244963" sideWeight="0.31458333" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -623,18 +593,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Vox/Engine.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-901">
-          <caret line="27" column="38" lean-forward="false" selection-start-line="27" selection-start-column="38" selection-end-line="27" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Vox/Chunk.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-2108">
           <caret line="32" column="23" lean-forward="false" selection-start-line="32" selection-start-column="23" selection-end-line="32" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Vox/asd.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="73" column="45" lean-forward="true" selection-start-line="73" selection-start-column="45" selection-end-line="73" selection-end-column="45" />
           <folding />
         </state>
       </provider>
@@ -654,15 +624,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Vox/BlockType.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="12" lean-forward="false" selection-start-line="0" selection-start-column="12" selection-end-line="0" selection-end-column="12" />
+        <state relative-caret-position="289">
+          <caret line="17" column="0" lean-forward="true" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Vox/Camera.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="113">
+        <state relative-caret-position="215">
           <caret line="119" column="44" lean-forward="false" selection-start-line="119" selection-start-column="44" selection-end-line="119" selection-end-column="44" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -672,24 +642,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Vox/Block.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="555">
-          <caret line="109" column="26" lean-forward="false" selection-start-line="109" selection-start-column="26" selection-end-line="109" selection-end-column="26" />
+        <state relative-caret-position="468">
+          <caret line="142" column="53" lean-forward="false" selection-start-line="142" selection-start-column="53" selection-end-line="142" selection-end-column="53" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Vox/asd.java">
+    <entry file="file://$PROJECT_DIR$/src/Vox/Engine.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="73" column="45" lean-forward="true" selection-start-line="73" selection-start-column="45" selection-end-line="73" selection-end-column="45" />
+        <state relative-caret-position="-646">
+          <caret line="28" column="37" lean-forward="false" selection-start-line="28" selection-start-column="37" selection-end-line="28" selection-end-column="37" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Vox/Game.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="402">
-          <caret line="71" column="42" lean-forward="true" selection-start-line="71" selection-start-column="42" selection-end-line="71" selection-end-column="42" />
+        <state relative-caret-position="317">
+          <caret line="78" column="46" lean-forward="true" selection-start-line="78" selection-start-column="46" selection-end-line="78" selection-end-column="46" />
           <folding />
         </state>
       </provider>

@@ -9,6 +9,7 @@ package Vox;
     being responsible for the rendering of each of the chunks.
  */
 import org.lwjgl.BufferUtils;
+import org.lwjgl.input.Keyboard;
 import org.lwjgl.opengl.Display;
 import org.lwjgl.opengl.DisplayMode;
 import org.lwjgl.opengl.GL11;
@@ -25,7 +26,7 @@ import java.util.Vector;
 import static org.lwjgl.opengl.GL11.*;
 
 public class Engine{
-    private static final int SIZE = 13;
+    private static final int SIZE = 4;
     private static Vector<Chunk> objects = new Vector<Chunk>();
     private static Vector<Light> lights = new Vector<Light>();
     private static DisplayMode displayMode;
@@ -64,6 +65,7 @@ public class Engine{
     // Purpose: initializes our window and all of the opengl variables.
     public static void start(){
         new Light(new Vector3f(getSIZE()*Chunk.getCHUNKSIZE()/2,getSIZE()*Chunk.getCHUNKSIZE()/2,getSIZE()*Chunk.getCHUNKSIZE()/2));
+        Keyboard.enableRepeatEvents(true);
         createWindow();
         initGL();
         generateWorld();

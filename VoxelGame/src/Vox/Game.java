@@ -12,6 +12,9 @@ import org.lwjgl.input.Mouse;
 import org.lwjgl.opengl.Display;
 import org.lwjgl.util.vector.Vector3f;
 
+import java.sql.Date;
+import java.sql.Time;
+
 import static org.lwjgl.opengl.GL11.*;
 /*
     Name: Tyler Crouch,Brandon Helt, Kelvin Huang, Christian Munoz
@@ -22,9 +25,12 @@ import static org.lwjgl.opengl.GL11.*;
     Purpose: Simple class that contains our camera and our main logic loop.
  */
 public class Game {
+    private static final long SECOND = 1000;
     private static Camera camera;
     private static float mouseSensitivity = 0.09f;
     private static float movementSpeed = .9f;
+    private static long lastEvent;
+    private static boolean swapEligible = true;
     // Method:  gameLoop
     // Purpose: Refreshes camera position and draws all objects to screen.
     public static void gameLoop() {
@@ -69,8 +75,18 @@ public class Game {
             camera.moveDown(movementSpeed);
         }
         if(Keyboard.isKeyDown(Keyboard.KEY_T) && Keyboard.isKeyDown(Keyboard.KEY_LSHIFT)){
-            ResourceManager.swapTexture();
+            if(swapEligible){
+                ResourceManager.swapTexture();
+                lastEvent = System.currentTimeMillis();
+                swapEligible = false;
+            }
+            checkTimeout(System.currentTimeMillis());
         }
-
     }
+    private static void checkTimeout(long current){
+        if((current - lastEvent) >= 1000){
+            swapEligible = true;
+        }
+    }
+
 }
