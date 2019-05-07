@@ -25,7 +25,7 @@ import java.util.Vector;
 import static org.lwjgl.opengl.GL11.*;
 
 public class Engine{
-    private static final int SIZE = 4;
+    private static final int SIZE = 13;
     private static Vector<Chunk> objects = new Vector<Chunk>();
     private static Vector<Light> lights = new Vector<Light>();
     private static DisplayMode displayMode;
@@ -72,7 +72,7 @@ public class Engine{
     // Method: initGL()
     // Purpose: initializes our openGL states.
     private static void initGL() {
-        glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
+        glClearColor(152/255f, 175/255f, 199/255f, 0.0f);
         glMatrixMode(GL_PROJECTION);
         glLoadIdentity();
         GLU.gluPerspective(100.0f, (float)displayMode.getWidth()/(float)
@@ -87,6 +87,7 @@ public class Engine{
         glEnableClientState(GL_TEXTURE_COORD_ARRAY);
         glEnable(GL_LIGHTING);
         glEnable(GL_LIGHT0);
+        glEnable(GL_NORMALIZE);
 
     }
     // Method: createWindow()

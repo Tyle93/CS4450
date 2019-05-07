@@ -7,6 +7,7 @@ import org.newdawn.slick.Color;
 import org.newdawn.slick.opengl.*;
 
 import java.nio.FloatBuffer;
+import java.util.Random;
 
 /*
     Name: Tyler Crouch,Brandon Helt, Kelvin Huang, Christian Munoz
@@ -112,15 +113,22 @@ public class Block {
                     if(lower.type == BlockType.BLOCK_TYPE_GRASS){
                         lower.setBlockType(BlockType.BLOCK_TYPE_DIRT);
                     }
-                }else if(yPos > 20){
+                }else if(yPos > 8){
                     type = BlockType.BLOCK_TYPE_GRASS;
                     if(lower.type == BlockType.BLOCK_TYPE_GRASS) {
                         lower.setBlockType(BlockType.BLOCK_TYPE_DIRT);
                     }
-                }else if(yPos > 10){
-                    type = BlockType.BLOCK_TYPE_SAND;
-                }else if(yPos > 2 ){
-                    type = BlockType.BLOCK_TYPE_DIRT;
+                }
+               // else if(yPos > 6){
+               //     type = BlockType.BLOCK_TYPE_SAND;
+               // }
+                else if(yPos > 2 ){
+                    int i =  new Random().nextInt();
+                    if(i % 2 == 0){
+                        type = BlockType.BLOCK_TYPE_DIRT;
+                    }else{
+                        type = BlockType.BLOCK_TYPE_STONE;
+                    }
                 }else{
                     type = BlockType.BLOCK_TYPE_BEDROCK;
                 }

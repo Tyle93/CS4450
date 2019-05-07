@@ -68,5 +68,9 @@ public class Game {
         if (Keyboard.isKeyDown(Keyboard.KEY_E) || Keyboard.isKeyDown(Keyboard.KEY_LCONTROL)){
             camera.moveDown(movementSpeed);
         }
+        if(Keyboard.isKeyDown(Keyboard.KEY_T) && Keyboard.isKeyDown(Keyboard.KEY_LSHIFT)){
+            ResourceManager.swapTexture();
+        }
+
     }
 }

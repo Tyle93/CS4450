@@ -8,16 +8,15 @@ package Vox;
     Purpose: Utility class meant for the initial loading of various textures and shaders.
  */
 import org.lwjgl.opengl.GL20;
-import org.lwjgl.util.Color;
 import org.newdawn.slick.opengl.Texture;
 import org.newdawn.slick.opengl.TextureLoader;
 
 import java.io.*;
-import java.util.Scanner;
 
 public class ResourceManager {
     static private boolean initialized = false;
-    private static Texture texMap = null;
+    private static Texture[] texMaps = new Texture[3];
+    private static int currentTex = 0;
     private static float[] stoneCoords;
     private static float[] sandCoords;
     private static float[] dirtCoords;
@@ -36,7 +35,9 @@ public class ResourceManager {
     public static void initializeResources(){
         try {
             try {
-                texMap = TextureLoader.getTexture("PNG", new FileInputStream("terrain.png"));
+                texMaps[0] = TextureLoader.getTexture("PNG", new FileInputStream("terrain1.png"));
+                texMaps[1] = TextureLoader.getTexture("PNG", new FileInputStream("terrain2.png"));
+                texMaps[2] = TextureLoader.getTexture("PNG", new FileInputStream("terrain3.png"));
                 generateTexCoords();
                 initialized = true;
             } catch (IOException e) {
@@ -237,7 +238,10 @@ public class ResourceManager {
     // Method: getTexMap
     // Purpose: returns the texture atlas.
     public static Texture getTexMap() {
-        return texMap;
+        return texMaps[currentTex];
+    }
+    public static void swapTexture(){
+        currentTex = (currentTex+1)%3;
     }
     // Method: getTexCoords
     // Purpose: returns the associated texture coordinates for each of the block types.

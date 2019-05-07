@@ -117,8 +117,8 @@ public class Camera {
         System.out.println("\n\nX: " + position.x + "\nY: " + position.y + "\nZ: " + position.z);
         float xMax = -Engine.getSIZE()*Chunk.getCHUNKSIZE();
         float xMin = 0;
-        float yMax = -Chunk.getCHUNKSIZE()*1.5f;
-        float yMin = 0;
+        float yMax = -Chunk.getCHUNKSIZE()*4;
+        float yMin = -yMax;
         float zMax = xMax;
         float zMin = 0;
         if(position.x < xMax){

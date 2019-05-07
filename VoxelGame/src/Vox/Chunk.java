@@ -27,8 +27,8 @@ import static org.lwjgl.opengl.GL15.GL_STATIC_DRAW;
  */
 public class Chunk {
     private static int ChunkCount = 0;
-    private static final int CHUNKSIZE  = 64;
-    private final double scale = .0065;
+    private static final int CHUNKSIZE  = 32;
+    private final double scale = .015;
     //private int seed = 543332;
     private static int seed = new Random().nextInt();
     private int vertHandle;
@@ -65,7 +65,7 @@ public class Chunk {
         }
         for(int i = 0; i < CHUNKSIZE; i++){
             for(int j = 0; j < CHUNKSIZE; j++){
-                noise[i][j] = simp.noise(blocks[i][0][j].getxPos()* scale,blocks[i][0][j].getzPos() * scale);
+                noise[i][j] = simp.noise(blocks[i][0][j].getxPos() *scale  ,blocks[i][0][j].getzPos() * scale);
             }
         }
         int currentHeight;
