@@ -142,7 +142,7 @@ public class Block {
                 else if(yPos > 2 ){
                     type = BlockType.BLOCK_TYPE_SAND;
                 }else{
-                    type = BlockType.BLOCK_TYPE_BEDROCK;
+                    type = BlockType.BLOCK_TYPE_WATER;
                 }
             }
         }else{

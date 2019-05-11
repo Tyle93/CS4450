@@ -40,8 +40,8 @@ public class Light {
     }
     public Light(Vector3f pos){
         this.pos = pos;
-        ambient = new Vector3f(.4f,.4f,.4f);
-        diffuse = new Vector3f(.9f,.9f,.9f);
+        ambient = new Vector3f(.6f,.6f,.6f);
+        diffuse = new Vector3f(1f,1f,1f);
         specular = new Vector3f(.5f,.5f,.5f);
         initLightArrays();
         Engine.addLight(this);

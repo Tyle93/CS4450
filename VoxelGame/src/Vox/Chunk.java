@@ -28,7 +28,8 @@ import static org.lwjgl.opengl.GL15.GL_STATIC_DRAW;
 public class Chunk {
     private static int ChunkCount = 0;
     private static final int CHUNKSIZE  = 32;
-    private final double scale = .015;
+    private final double scale = .0175;
+    private static int count = 0;
     //private int seed = 543332;
     private static int seed = new Random().nextInt();
     private int vertHandle;
@@ -80,7 +81,8 @@ public class Chunk {
 
                 for(int k = 0; k < currentHeight; k++){
                     blocks[i][k][j].activate();
-                    System.out.println(ChunkCount);
+                    count++;
+                    System.out.println(count);
                 }
             }
         }

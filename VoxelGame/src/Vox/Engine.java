@@ -9,6 +9,7 @@ package Vox;
     being responsible for the rendering of each of the chunks.
  */
 import org.lwjgl.BufferUtils;
+import org.lwjgl.LWJGLException;
 import org.lwjgl.input.Keyboard;
 import org.lwjgl.opengl.Display;
 import org.lwjgl.opengl.DisplayMode;
@@ -96,9 +97,18 @@ public class Engine{
     // Purpose: Creates a 640x480 window
     private static void createWindow(){
         try{
-            Display.setFullscreen(false);
-            displayMode = new DisplayMode(640,480);
+
+            displayMode = new DisplayMode(1600 ,900);
             Display.setDisplayMode(displayMode);
+
+            /*
+            Display.setDisplayMode(getDisplayMode(1920 ,1080,false));
+            if(displayMode.isFullscreenCapable()){
+                Display.setFullscreen(true);
+            }else{
+                Display.setFullscreen(false);
+            }
+            */
             Display.setTitle("CubeKraft");
             Display.create();
         }catch (Exception e){
@@ -106,6 +116,27 @@ public class Engine{
                 System.out.println(s.toString());
             }
         }
+    }
+    private static DisplayMode getDisplayMode(int width, int height, boolean fullscreen){
+        try{
+            DisplayMode displayMode = null;
+            DisplayMode[] modes = Display.getAvailableDisplayModes();
+
+            for (int i = 0; i < modes.length; i++)
+            {
+                if (modes[i].getWidth() == width
+                        && modes[i].getHeight() == height
+                        && modes[i].isFullscreenCapable())
+                {
+                    displayMode = modes[i];
+                    return displayMode;
+                }
+            }
+        }catch (LWJGLException e){
+            return new DisplayMode(1600,900);
+        }
+        return new DisplayMode(1600,900);
+
     }
     // Method: generateWorld
     // Purpose: creates a 2 dimensional chunk array.

@@ -34,7 +34,7 @@ public class Game {
     // Method:  gameLoop
     // Purpose: Refreshes camera position and draws all objects to screen.
     public static void gameLoop() {
-        camera = new Camera(-Engine.getSIZE()*Chunk.getCHUNKSIZE()/2, -Chunk.getCHUNKSIZE()/1.5f, -Engine.getSIZE()*Chunk.getCHUNKSIZE()/2);
+        camera = new Camera(-Engine.getSIZE()*Chunk.getCHUNKSIZE()/2, -Chunk.getCHUNKSIZE()*1.2f, -Engine.getSIZE()*Chunk.getCHUNKSIZE()/2);
         float dx = 0.0f;
         float dy = 0.0f;
         Mouse.setGrabbed(true);
